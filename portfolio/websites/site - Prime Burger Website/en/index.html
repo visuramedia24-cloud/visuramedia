@@ -1,0 +1,2833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Burger - Exquisite Burger Restaurant in Leipzig</title>
+    <meta name="description" content="Experience exquisite burger creations at Prime Burger Leipzig. Award-winning restaurant with fresh ingredients and premium quality.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Async load fonts to prevent render blocking -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap"></noscript>
+    <link rel="preload" href="../images/icons/Logo Prime Burger.jpg" as="image">
+    <!-- DNS Prefetch for external services -->
+    <link rel="dns-prefetch" href="https://www.lieferando.de">
+    <link rel="dns-prefetch" href="https://www.ubereats.com">
+    <link rel="dns-prefetch" href="https://wolt.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8960F;
+            --light-gold: #F4E4C1;
+            --deep-black: #0A0A0A;
+            --soft-black: #1C1C1C;
+            --warm-white: #FFF8F0;
+            --text-gray: #B0B0B0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--deep-black);
+            color: #E8E8E8;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 17px; /* Apple's magic number for mobile readability */
+        }
+
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            filter: contrast(1.05) saturate(1.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--deep-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 10px;
+        }
+
+        /* Loading Screen - IMPROVED */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--deep-black) 0%, var(--soft-black) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+            padding: 1rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .loader-logo {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4),
+                        inset 0 4px 20px rgba(255, 255, 255, 0.15);
+            animation: logoGlow 2s ease-in-out infinite;
+            padding: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { 
+                box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4),
+                            inset 0 4px 20px rgba(255, 255, 255, 0.15);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 25px 70px rgba(212, 175, 55, 0.6),
+                            inset 0 4px 25px rgba(255, 255, 255, 0.2);
+                transform: scale(1.02);
+            }
+        }
+
+        .loader-logo::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            animation: shimmerRotate 3s infinite;
+        }
+
+        @keyframes shimmerRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .loader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .loader-tagline {
+            font-size: 0.95rem;
+            color: var(--light-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .loader-bar {
+            width: 240px;
+            height: 4px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .loader-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--dark-gold), var(--primary-gold));
+            background-size: 200% 100%;
+            width: 0;
+            animation: loading 0.8s ease-out forwards, shimmerBar 1.5s linear infinite;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        @keyframes loading {
+            to { width: 100%; }
+        }
+
+        @keyframes shimmerBar {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        @media (max-width: 768px) {
+            .loader-logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .loader-text {
+                font-size: 1.8rem;
+            }
+            
+            .loader-bar {
+                width: 200px;
+            }
+        }
+
+        /* Navigation - Mobile First */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.75rem 0;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            transition: transform 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .navbar.scrolled .logo-img {
+            width: 55px;
+            height: 55px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: none;
+        }
+
+        .logo-container:hover .logo-img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.75rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+            width: 48px;
+            height: 48px;
+        }
+
+        .hamburger:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary-gold);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 90%;
+            max-width: 360px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            padding: 3rem 2rem;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-link {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: color 0.3s;
+            padding: 1.25rem 1.5rem;
+            width: 100%;
+            text-align: center;
+            min-height: 56px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--dark-gold));
+            transition: width 0.4s cubic-bezier(0.65, 0.0, 0.35, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--deep-black);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 1rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--primary-gold);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+        }
+
+        /* Hero Section - Mobile First */
+        .hero {
+            min-height: 100svh; /* svh for mobile browsers - better than vh */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 8rem 1.5rem 4rem; /* was 5rem 1rem 3rem - more breathing room */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../images/gallery/Burger nr.1.jpg') center/cover;
+            animation: zoomIn 20s infinite alternate;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.55));
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(212, 175, 55, 0.9);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            display: block;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 14vw, 6.5rem); /* was 2.5rem - now COMMANDS attention */
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--warm-white), var(--primary-gold), var(--warm-white));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            animation: shimmer 3s infinite, fadeInUp 1s ease-out 0.9s both;
+            line-height: 1.05; /* tighter - Apple-style tracking */
+            letter-spacing: -0.02em;
+        }
+
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            animation: fadeInUp 1s ease-out 1.1s both;
+        }
+
+        .divider-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .divider-icon {
+            font-size: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem; /* was 1rem - 18px for better mobile readability */
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 1.3s both;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem; /* was 1.1rem 2.2rem - bigger tap targets */
+            font-size: 1.0625rem; /* 17px - Apple's golden number */
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
+            will-change: transform;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px; /* Apple's minimum tap target */
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--deep-black);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            font-weight: 700; /* primary action = more confidence */
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--warm-white);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Quick Info Bar */
+        .quick-info {
+            background: var(--soft-black);
+            padding: 1.5rem 0.75rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            width: 100%;
+        }
+
+        .quick-info-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            text-align: center;
+            width: 100%;
+            padding: 0 0.25rem;
+            box-sizing: border-box;
+        }
+
+        .quick-info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.5rem 1rem;
+            background: rgba(212, 175, 55, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            max-width: 100%;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .quick-info-icon {
+            font-size: 1.8rem;
+        }
+
+        .quick-info-item h4 {
+            color: var(--primary-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .quick-info-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 100%;
+        }
+
+        /* Delivery Service Cards */
+        .delivery-services {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .delivery-card {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 1rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 80px;
+            max-width: 100%;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .delivery-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .delivery-card:hover::before {
+            left: 100%;
+        }
+
+        .delivery-card:hover {
+            transform: translateY(-4px);
+            background: rgba(212, 175, 55, 0.08);
+            border-color: var(--primary-gold);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3),
+                        0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .delivery-card:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .delivery-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+            transition: transform 0.3s;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 6px;
+        }
+
+        .delivery-card:hover .delivery-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.5));
+        }
+
+        .delivery-info {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .delivery-name {
+            color: var(--primary-gold);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .delivery-meta {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .delivery-badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--primary-gold);
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .delivery-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--warm-white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .delivery-card:hover .delivery-cta {
+            color: var(--primary-gold);
+            transform: translateX(3px);
+        }
+
+        .external-icon {
+            font-size: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .delivery-card:hover .external-icon {
+            opacity: 1;
+        }
+
+        .delivery-section-header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 1rem 0 0.5rem;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .delivery-section-header h4 {
+            color: var(--primary-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .delivery-section-header p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0; /* was 3rem - premium means air */
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem; /* was 1rem - more comfortable on mobile */
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 10vw, 4rem); /* was 2rem - more dramatic */
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--warm-white), var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1.0625rem; /* 17px - better readability */
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* About Section - Mobile First */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .about-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .about-content.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 6vw, 2.5rem); /* was 1.5rem - more power */
+            margin-bottom: 1.25rem;
+            color: var(--primary-gold);
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.0625rem; /* 17px - easier to read */
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            transition: all 0.4s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--warm-white);
+        }
+
+        .about-images {
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out 0.2s;
+        }
+
+        .about-images.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-image-main {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 1px rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .about-image-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), transparent);
+            z-index: 1;
+        }
+
+        .about-image-main img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s;
+        }
+
+        .about-image-main:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Burger Showcase Carousel */
+        .burger-showcase {
+            background: linear-gradient(180deg, var(--deep-black), var(--soft-black));
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .burger-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .showcase-slider {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 2rem 1rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .showcase-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .showcase-card {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .showcase-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.9));
+        }
+
+        .showcase-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .showcase-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--warm-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-info p {
+            color: var(--primary-gold);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 768px) {
+            .showcase-card {
+                flex: 0 0 45%;
+                height: 500px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .showcase-card {
+                flex: 0 0 30%;
+                height: 550px;
+            }
+        }
+
+        /* Gallery Button */
+        .gallery-button-container {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 0 1rem 2rem;
+        }
+
+        .btn-gallery {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.3rem 3rem;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--deep-black);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            transition: all 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-gallery:hover::before {
+            left: 100%;
+        }
+
+        .btn-gallery:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-gallery:active {
+            transform: scale(0.96);
+        }
+
+        .gallery-arrow {
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+
+        .btn-gallery:hover .gallery-arrow {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 640px) {
+            .btn-gallery {
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Gallery - Mobile First */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+        
+        @media (min-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .gallery-item.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+        }
+
+        .gallery-item-large {
+            height: 280px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.3) 40%, rgba(10, 10, 10, 0.95) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.25rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--warm-white);
+            transform: translateY(20px);
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay h3 {
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2.5rem;
+            color: var(--warm-white);
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-gold);
+            background: rgba(212, 175, 55, 0.3);
+        }
+
+        /* Reservation Section - Mobile First */
+        .reservation-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .reservation-form {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+            padding: 2rem 1.25rem;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        @media (min-width: 640px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.25rem 1.125rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            color: var(--warm-white);
+            font-size: 1.0625rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+            min-height: 56px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1),
+                        0 8px 24px rgba(212, 175, 55, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transform: translateY(-2px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-block {
+            width: 100%;
+            min-height: 60px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .reservation-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .reservation-success.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--deep-black);
+            margin: 0 auto 1.5rem;
+            animation: scaleIn 0.5s;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .reservation-success h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .reservation-success p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .reservation-info {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+            padding: 2rem 1.25rem;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .reservation-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            color: var(--warm-white);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--dark-gold);
+        }
+
+        /* Footer - Mobile First */
+        .footer {
+            background: var(--soft-black);
+            padding: 2.5rem 0 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-section {
+            text-align: center;
+        }
+
+        .footer-logo-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            transform: translateY(-3px);
+        }
+
+        .footer-section h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            list-style: none;
+            text-align: center;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border: none;
+            border-radius: 50%;
+            color: var(--deep-black);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--dark-gold));
+            z-index: 10000;
+            transition: width 0.1s ease;
+        }
+
+        /* Tablet Breakpoint */
+        @media (min-width: 576px) {
+            .logo-text {
+                display: block;
+            }
+
+            .quick-info {
+                padding: 1.5rem 1rem;
+            }
+
+            .quick-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+
+            .quick-info-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .delivery-card {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            .delivery-icon {
+                width: 50px;
+                height: 50px;
+                padding: 8px;
+            }
+
+            .delivery-name {
+                font-size: 1rem;
+            }
+
+            .delivery-cta {
+                font-size: 0.9rem;
+            }
+
+            .about-features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .section {
+                padding: 6rem 0; /* was 4rem - more breathing room on tablet */
+            }
+        }
+
+        /* Desktop Breakpoint */
+        @media (min-width: 768px) {
+            html {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 8rem 0; /* was 5rem - luxurious spacing on desktop */
+            }
+
+            .container {
+                padding: 0 2.5rem; /* was 2rem - even more comfortable */
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            .nav-menu {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                flex-direction: row;
+                gap: 2.5rem;
+                box-shadow: none;
+                backdrop-filter: none;
+                padding: 0;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0;
+                width: auto;
+            }
+
+            .nav-cta {
+                margin-top: 0;
+            }
+
+            .lang-switcher {
+                margin-top: 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .quick-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .delivery-services {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .delivery-card {
+                flex: 1;
+                max-width: 280px;
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .delivery-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .delivery-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .delivery-meta {
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+
+            .footer-section h4,
+            .footer-links,
+            .footer-logo-section {
+                text-align: left;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .footer-bottom-links {
+                margin-top: 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .gallery-item {
+                height: 280px;
+            }
+
+            .gallery-item-large {
+                height: 350px;
+            }
+
+            .reservation-content {
+                grid-template-columns: 2fr 1fr;
+                gap: 3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 992px) {
+            .section {
+                padding: 6rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 4rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .gallery-item-large {
+                grid-column: span 2;
+                height: 400px;
+            }
+
+            .gallery-overlay h3 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Performance: Images use native lazy loading */
+        
+        /* Better focus indicators for accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--primary-gold);
+            outline-offset: 3px;
+        }
+        
+        /* Loading states */
+        .loading {
+            pointer-events: none;
+            opacity: 0.6;
+            cursor: wait;
+        }
+        
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="../images/icons/Logo Prime Burger.jpg" alt="Prime Burger Logo" width="160" height="160" loading="eager">
+            </div>
+            <div class="loader-text">Prime Burger</div>
+            <div class="loader-tagline">Premium Burger Experience</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-container">
+                <img src="../images/icons/Logo Prime Burger.jpg" alt="Prime Burger Logo" width="75" height="75" class="logo-img">
+                <span class="logo-text">Prime Burger</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="gallery-en.html" class="nav-link" onclick="event.stopPropagation();">Gallery</a></li>
+                <li><a href="#reservation" class="nav-cta">Reserve</a></li>
+                <div class="lang-switcher">
+                    <button class="lang-btn" onclick="window.location.href='../de/index.html'">DE</button>
+                    <button class="lang-btn active">EN</button>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-logo-wrapper" style="width: 140px; height: 140px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4), inset 0 4px 20px rgba(255, 255, 255, 0.15); animation: fadeInUp 1s ease-out 0.3s both; padding: 6px; position: relative; overflow: hidden;">
+                <img src="../images/icons/Logo Prime Burger.jpg" alt="Prime Burger Logo" width="140" height="140" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; position: relative; z-index: 1; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                <div style="content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent); animation: shimmerHero 4s infinite;"></div>
+            </div>
+            
+            <style>
+                @keyframes shimmerHero {
+                    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+                    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+                }
+            </style>
+            <span class="hero-tagline">Welcome to</span>
+            <h1 class="hero-title">Prime Burger</h1>
+            <div class="hero-divider">
+                <span class="divider-line"></span>
+                <span class="divider-icon">✦</span>
+                <span class="divider-line"></span>
+            </div>
+            <p class="hero-subtitle">Where culinary excellence meets unforgettable burger experiences</p>
+            <div class="hero-buttons">
+                <a href="#reservation" class="btn btn-primary">Reserve a Table</a>
+                <a href="menu.html" class="btn btn-outline">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Bar -->
+    <section class="quick-info">
+        <div class="quick-info-grid">
+            <div class="quick-info-item">
+                <span class="quick-info-icon">📍</span>
+                <h4>Leipzig</h4>
+                <p>Große Fleischergasse 4<br>04109 Leipzig</p>
+            </div>
+            <div class="quick-info-item">
+                <span class="quick-info-icon">📞</span>
+                <h4>Phone</h4>
+                <p><a href="tel:034130853717" style="color: var(--text-gray); text-decoration: none;">0341 30853717</a></p>
+            </div>
+            <div class="quick-info-item">
+                <span class="quick-info-icon">🕐</span>
+                <h4>Opening Hours</h4>
+                <p>Mon-Thu: 11:30-22:00<br>Fri-Sat: 11:30-23:00</p>
+            </div>
+            <div class="quick-info-item">
+                <span class="quick-info-icon">📧</span>
+                <h4>Email</h4>
+                <p><a href="mailto:Kontakt@prime-burger.de" style="color: var(--text-gray); text-decoration: none;">Kontakt@prime-burger.de</a></p>
+            </div>
+            
+            <!-- Delivery Services Section -->
+            <div class="delivery-section-header">
+                <h4>Order Delivery</h4>
+                <p>Fast delivery in 30-45 minutes</p>
+            </div>
+            
+            <div class="delivery-services">
+                <a href="https://www.lieferando.de/en/menu/prime-burger-04109?kwe&utm_source=google&utm_medium=cpc&utm_campaign=CM_S_G_DEU_EN_[RES]_[ENGM]_SC_Leipzig_1004927&utm_campaignid=1765425088&gad_source=1&gad_campaignid=1765425088&gclid=CjwKCAiA8bvIBhBJEiwAu5ayrGSMEW4b605xU4YRME0URNoEk_5M_9qjIZU3rxT_qIPXZCvhmOXJERoCHG0QAvD_BwE" 
+                   class="delivery-card" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Order from Lieferando"
+                   data-delivery-service="lieferando">
+                    <img src="../images/icons/Lieferando-Logo.png" 
+                         alt="Lieferando Logo" 
+                         class="delivery-icon" 
+                         loading="lazy"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                    />
+                    <span class="delivery-icon" style="display:none; font-size:2.5rem;" role="img" aria-label="Burger">🍔</span>
+                    <div class="delivery-info">
+                        <span class="delivery-name">Lieferando</span>
+                        <div class="delivery-meta">
+                            <span class="delivery-badge">Popular</span>
+                            <span>30-45 min</span>
+                        </div>
+                    </div>
+                    <div class="delivery-cta">
+                        <span>Order Now</span>
+                        <span class="external-icon" aria-hidden="true">↗</span>
+                    </div>
+                </a>
+                
+                <a href="https://www.ubereats.com/de-en/store/prime-burger/SiZ0pwE_X9O6myE_a-XT6Q?srsltid=AfmBOorT3-4UzM6N3H2WatJOrDRA5jt-dTnkecJVKadeiCi8y68UHWg7" 
+                   class="delivery-card" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Order from Uber Eats"
+                   data-delivery-service="ubereats">
+                    <img src="../images/icons/uber eats.jpeg" 
+                         alt="Uber Eats Logo" 
+                         class="delivery-icon" 
+                         loading="lazy"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                    />
+                    <span class="delivery-icon" style="display:none; font-size:2.5rem;" role="img" aria-label="Delivery">🛵</span>
+                    <div class="delivery-info">
+                        <span class="delivery-name">Uber Eats</span>
+                        <div class="delivery-meta">
+                            <span class="delivery-badge">Fast</span>
+                            <span>25-40 min</span>
+                        </div>
+                    </div>
+                    <div class="delivery-cta">
+                        <span>Order Now</span>
+                        <span class="external-icon" aria-hidden="true">↗</span>
+                    </div>
+                </a>
+                
+                <a href="https://wolt.com/en/deu/leipzig/restaurant/prime-burger-leipzig/items/wolt-specials-1?srsltid=AfmBOor8M8t049o-t2cEj3OMKrp4lodJNU4T-GxSFa0arw2swmL2RCZw" 
+                   class="delivery-card" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Order from Wolt"
+                   data-delivery-service="wolt">
+                    <img src="../images/icons/wolt.svg" 
+                         alt="Wolt Logo" 
+                         class="delivery-icon" 
+                         loading="lazy"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                    />
+                    <span class="delivery-icon" style="display:none; font-size:2.5rem;" role="img" aria-label="Food">🌮</span>
+                    <div class="delivery-info">
+                        <span class="delivery-name">Wolt</span>
+                        <div class="delivery-meta">
+                            <span class="delivery-badge">New</span>
+                            <span>30-50 min</span>
+                        </div>
+                    </div>
+                    <div class="delivery-cta">
+                        <span>Order Now</span>
+                        <span class="external-icon" aria-hidden="true">↗</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Story</div>
+                <h2 class="section-title">Passion Meets Perfection</h2>
+                <p class="section-subtitle">A journey full of taste and excellence since 2015</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Culinary Masterpieces</h3>
+                    <p>The idea for Prime Burger came from a passion for good, honest food. We wanted to offer burgers that are truly fresh - without convenience products, without compromise.</p>
+                    <p>Today we grill every burger fresh, with meat from regional sources and ingredients you can taste. One bite - and you know why we love burgers so much!</p>
+                    <h3>Our Philosophy</h3>
+                    <p>We stand for honest cuisine - without tricks, without additives, without frozen goods. Our burgers are as real as we are: fresh, juicy and full of flavor. What makes us special? We don't cook for the masses, but for people.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🏆</span>
+                            <span class="feature-text">Premium Quality</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🌱</span>
+                            <span class="feature-text">Fresh Ingredients</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🍔</span>
+                            <span class="feature-text">Homemade</span>
+                        </div>
+                    </div>
+                    <a href="menu.html" class="btn btn-primary">Discover Menu</a>
+                </div>
+                <div class="about-images">
+                    <div class="about-image-main">
+                        <img src="../images/gallery/Resturant Ambience nr.1.jpg" alt="Prime Burger Restaurant" width="800" height="600" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Burger Showcase Carousel -->
+    <section class="burger-showcase">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Masterpieces</div>
+                <h2 class="section-title">Premium Burger Creations</h2>
+                <p class="section-subtitle">Every burger a culinary work of art</p>
+            </div>
+        </div>
+        <div class="showcase-slider">
+            <div class="showcase-card">
+                <img src="../images/gallery/The real big Prime.jpg" alt="The Real Big Prime" loading="lazy">
+                <div class="showcase-info">
+                    <h3>The Real Big Prime</h3>
+                    <p>Our Signature Burger</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Bbq Bacon Burger.jpg" alt="BBQ Bacon Burger" loading="lazy">
+                <div class="showcase-info">
+                    <h3>BBQ Bacon Burger</h3>
+                    <p>Smoky & Savory</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Hawaii Burger.jpg" alt="Hawaii Burger" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Hawaii Burger</h3>
+                    <p>Tropical Flavor Explosion</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Pulled pork burger.jpg" alt="Pulled Pork Burger" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Pulled Pork Burger</h3>
+                    <p>Tender & Juicy</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Hähnchen shakshuka burger.jpg" alt="Chicken Shakshuka Burger" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Chicken Shakshuka</h3>
+                    <p>Oriental Inspired</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Vegetarischer Burger mit Gemüse vom Markt.jpg" alt="Vegetarian Burger" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Vegetarian Burger</h3>
+                    <p>Fresh Market Vegetables</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Cheese bomb.jpg" alt="Cheese Bomb" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Cheese Bomb</h3>
+                    <p>Cheese Lover's Dream</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Resturant Ambience nr.1.jpg" alt="Restaurant Ambience" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Our Ambience</h3>
+                    <p>Cozy & Stylish</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Resturant Ambience nr.2.jpg" alt="Restaurant Atmosphere" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Welcoming Atmosphere</h3>
+                    <p>Perfect for Any Occasion</p>
+                </div>
+            </div>
+            <div class="showcase-card">
+                <img src="../images/gallery/Resturant Ambience nr.3.jpg" alt="Restaurant Interior" loading="lazy">
+                <div class="showcase-info">
+                    <h3>Modern Elegance</h3>
+                    <p>Experience Prime Burger</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gallery Button -->
+        <div class="gallery-button-container">
+            <a href="gallery-en.html" class="btn btn-gallery">
+                <span>See Our Full Gallery</span>
+                <span class="gallery-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section id="video-showcase" class="section" style="padding: 0; position: relative; overflow: hidden;">
+        <div style="position: relative; width: 100%; height: 70vh; min-height: 500px;">
+            <video 
+                id="heroVideo"
+                muted 
+                loop 
+                playsinline
+                preload="none"
+                style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover;"
+            >
+                <source src="../images/Videos/resturant video.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.4));" class="video-overlay"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2; width: 90%; max-width: 800px;">
+                <div style="font-size: 0.95rem; color: var(--primary-gold); letter-spacing: 3px; margin-bottom: 1rem; text-transform: uppercase; font-weight: 600;">Experience</div>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 4rem); font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--warm-white), var(--primary-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Prime Burger Atmosphere</h2>
+                <p style="font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; line-height: 1.8;">Immerse yourself in a world of flavor, elegance and unforgettable moments</p>
+                <a href="#reservation" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1rem;">Experience Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Gallery</div>
+                <h2 class="section-title">Our World</h2>
+                <p class="section-subtitle">A visual journey through our burger restaurant</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item-large">
+                    <img src="../images/gallery/Resturant Ambience nr.2.jpg" alt="Prime Burger Restaurant" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Resturant Ambience nr.2</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Bbq Bacon Burger.jpg" alt="BBQ Bacon Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bbq Bacon Burger</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/holding a burger.jpg" alt="Freshly Served" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>holding a burger</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Hawaii Burger.jpg" alt="Hawaii Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Hawaii Burger</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Pulled pork burger.jpg" alt="Pulled Pork Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Pulled pork burger</h3>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-large">
+                    <img src="../images/gallery/Resturant Ambience nr.3.jpg" alt="Evening Ambiance" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Resturant Ambience nr.3</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Cheese bomb.jpg" alt="Cheese Bomb" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Cheese bomb</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/tow burgers.jpg" alt="Double Happiness" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>tow burgers</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Burger tisch 1.jpg" alt="Table Setting" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Burger tisch 1</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/The real big Prime.jpg" alt="The Real Big Prime" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>The real big Prime</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Spareribs.jpg" alt="Spareribs" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Spareribs</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/Hähnchen shakshuka burger.jpg" alt="Hähnchen Shakshuka Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Hähnchen shakshuka burger</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img id="lightboxImg" src="" alt="Gallery Image">
+    </div>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Reservation</div>
+                <h2 class="section-title">Reserve a Table</h2>
+                <p class="section-subtitle">Book your unforgettable burger experience</p>
+            </div>
+            <div class="reservation-content">
+                <div class="reservation-form-wrapper">
+                    <form class="reservation-form" id="reservationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="">Choose</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6+ Guests</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Choose</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Special Requests (Optional)</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Allergies, occasions, preferences..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Reserve Table</button>
+                    </form>
+                    <div class="reservation-success" id="reservationSuccess">
+                        <div class="success-icon">✓</div>
+                        <h3>Reservation Confirmed!</h3>
+                        <p>Thank you! We have sent a confirmation to your email.</p>
+                    </div>
+                </div>
+                <div class="reservation-info">
+                    <h3>Contact</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Große Fleischergasse 4<br>04109 Leipzig</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:034130853717">0341 30853717</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:Kontakt@prime-burger.de">Kontakt@prime-burger.de</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <h4>Opening Hours</h4>
+                            <p>Monday - Thursday: 11:30 - 22:00<br>Friday - Saturday: 11:30 - 23:00<br>Sunday: 11:30 - 21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo-section">
+                    <div style="width: 100px; height: 100px; margin: 0 auto 1rem; background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4), inset 0 3px 15px rgba(255, 255, 255, 0.15); padding: 5px; position: relative; overflow: hidden;">
+                        <img src="../images/icons/Logo Prime Burger.jpg" alt="Prime Burger Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; position: relative; z-index: 1; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                        <div style="content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent); animation: shimmerFooter 5s infinite;"></div>
+                    </div>
+                    
+                    <style>
+                        @keyframes shimmerFooter {
+                            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+                            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+                        }
+                    </style>
+                    <h3 class="footer-logo-text">Prime Burger</h3>
+                    <p>Where culinary excellence meets unforgettable burger experiences.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TripAdvisor">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-2 14a4 4 0 110-8 4 4 0 010 8zm8 0a4 4 0 110-8 4 4 0 010 8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="gallery-en.html">Gallery</a></li>
+                        <li><a href="#reservation">Reservation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Opening Hours</h4>
+                    <p>Monday - Thursday<br>11:30 - 22:00</p>
+                    <p>Friday - Saturday<br>11:30 - 23:00</p>
+                    <p>Sunday<br>11:30 - 21:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Große Fleischergasse 4<br>04109 Leipzig</p>
+                    <p>Tel: <a href="tel:034130853717" style="color: var(--primary-gold); text-decoration: none;">0341 30853717</a></p>
+                    <p>Email: <a href="mailto:Kontakt@prime-burger.de" style="color: var(--primary-gold); text-decoration: none;">Kontakt@prime-burger.de</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Prime Burger Leipzig. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Imprint</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script>
+        // Loading Screen - FASTER & OPTIMIZED
+        let loadingComplete = false;
+        
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', () => {
+            loadingComplete = true;
+            hideLoader();
+        });
+        
+        // Force hide loader after 800ms max (faster perceived load)
+        setTimeout(() => {
+            if (!loadingComplete) {
+                loadingComplete = true;
+                hideLoader();
+            }
+        }, 800);
+        
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('hidden');
+            // Remove from DOM after transition
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 600);
+        }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Only close menu and prevent scroll for anchor links
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    // For external links like gallery.html, just close menu but allow navigation
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Lazy Load Video - Only load when in viewport
+        const heroVideo = document.getElementById('heroVideo');
+        if (heroVideo) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroVideo.load();
+                        heroVideo.play().catch(e => console.log('Video autoplay prevented'));
+                        videoObserver.unobserve(heroVideo);
+                    }
+                });
+            }, { rootMargin: '200px' });
+            videoObserver.observe(heroVideo);
+        }
+
+        // Navbar Scroll Effect - Throttled for performance
+        const navbar = document.getElementById('navbar');
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Smooth Scroll - only for internal anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only handle if it's a real anchor link (starts with #)
+                if (href && href.startsWith('#') && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section-header, .about-content, .about-images').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Gallery Items Stagger Animation
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('revealed');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            galleryObserver.observe(item);
+        });
+
+        // Gallery Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = item.src;
+                lightboxImg.alt = item.alt;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Reservation Form
+        const reservationForm = document.getElementById('reservationForm');
+        const reservationSuccess = document.getElementById('reservationSuccess');
+
+        // Set minimum date for reservation to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            reservationForm.style.opacity = '0';
+            setTimeout(() => {
+                reservationForm.style.display = 'none';
+                reservationSuccess.classList.add('active');
+                reservationSuccess.style.animation = 'fadeInUp 0.5s ease-out';
+            }, 300);
+
+            // Reset after 5 seconds
+            setTimeout(() => {
+                reservationSuccess.classList.remove('active');
+                reservationForm.style.display = 'block';
+                reservationForm.reset();
+                setTimeout(() => {
+                    reservationForm.style.opacity = '1';
+                }, 50);
+            }, 5000);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Parallax Effect on Hero (only on desktop)
+        if (window.innerWidth > 768) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const heroContent = document.querySelector('.hero-content');
+                const heroBg = document.querySelector('.hero-bg');
+                
+                if (heroContent && scrolled < window.innerHeight) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
+                    heroContent.style.opacity = Math.max(0, 1 - (scrolled / (window.innerHeight * 0.8)));
+                }
+                
+                if (heroBg && scrolled < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.25}px)`;
+                }
+            });
+        }
+
+        // Performance: Lazy load images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        }
+
+        // Burger Showcase Carousel Auto-Scroll
+        const showcaseSlider = document.querySelector('.showcase-slider');
+        let isUserInteracting = false;
+        let userScrollTimeout;
+        
+        function autoScrollShowcase() {
+            if (!isUserInteracting && showcaseSlider) {
+                const maxScroll = showcaseSlider.scrollWidth - showcaseSlider.clientWidth;
+                let currentPosition = showcaseSlider.scrollLeft;
+                
+                // Increment position
+                currentPosition += 1;
+                
+                // Loop back to start when reaching the end
+                if (currentPosition >= maxScroll) {
+                    currentPosition = 0;
+                }
+                
+                showcaseSlider.scrollLeft = currentPosition;
+            }
+        }
+        
+        // Auto-scroll every 50ms for smooth animation
+        setInterval(autoScrollShowcase, 50);
+        
+        // Handle user interaction
+        if (showcaseSlider) {
+            // Pause auto-scroll on hover (desktop)
+            showcaseSlider.addEventListener('mouseenter', () => {
+                isUserInteracting = true;
+            });
+            
+            showcaseSlider.addEventListener('mouseleave', () => {
+                isUserInteracting = false;
+            });
+            
+            // Pause on touch start (mobile)
+            showcaseSlider.addEventListener('touchstart', () => {
+                isUserInteracting = true;
+                clearTimeout(userScrollTimeout);
+            });
+            
+            // Detect any manual scrolling (touch swipe, mouse drag, or wheel)
+            showcaseSlider.addEventListener('scroll', (e) => {
+                // Only handle user-initiated scrolls, not programmatic ones
+                if (!isUserInteracting) {
+                    isUserInteracting = true;
+                }
+                
+                // Clear any existing resume timeout
+                clearTimeout(userScrollTimeout);
+                
+                // Resume auto-scroll 3 seconds after user stops scrolling
+                userScrollTimeout = setTimeout(() => {
+                    isUserInteracting = false;
+                }, 3000);
+            }, { passive: true });
+        }
+
+        // Console Easter Egg
+        console.log('%c🍔 Prime Burger Leipzig', 'font-size: 20px; font-weight: bold; color: #D4AF37;');
+        console.log('%cWelcome! We look forward to your visit. 🌟', 'font-size: 14px; color: #A0A0A0;');
+        console.log('%cWebsite made with ❤️', 'font-size: 12px; color: #D4AF37;');
+    </script>
+</body>
+</html>

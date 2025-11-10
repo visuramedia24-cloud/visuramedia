@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Burger - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .admin-panel {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .admin-header h1 {
+            font-size: 36px;
+            font-family: 'Arial Black', Impact, sans-serif;
+            background: linear-gradient(135deg, #D4AF37, #F4A460);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-section {
+            background: #262626;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .admin-section h3 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-family: 'Arial Black', Impact, sans-serif;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #D4AF37;
+            font-family: 'Arial Black', Impact, sans-serif;
+        }
+
+        .stat-label {
+            color: #999;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #999;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #D4AF37;
+        }
+
+        .qr-code {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 15px;
+        }
+
+        .qr-code code {
+            color: #D4AF37;
+            font-size: 12px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #D4AF37, #F4A460);
+            color: #1a1a1a;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #F4A460, #D4AF37);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+
+        .feedback-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .feedback-item {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .feedback-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .feedback-date {
+            color: #D4AF37;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .feedback-delete {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .feedback-delete:hover {
+            background: #dc2626;
+        }
+
+        .feedback-message {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .no-feedback {
+            text-align: center;
+            color: #666;
+            padding: 40px;
+        }
+
+        .alert {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid #10b981;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert-warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .admin-header h1 {
+                font-size: 28px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-panel">
+        <div class="admin-header">
+            <div>
+                <h1>🍔 ADMIN PANEL</h1>
+                <p style="color: #999; margin-top: 5px;">Prime Burger Feedback System</p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="admin-section">
+            <h3>📊 STATISTIKEN</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalFeedback">0</div>
+                    <div class="stat-label">Gesamtes Feedback</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="todayFeedback">0</div>
+                    <div class="stat-label">Heute</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="weekFeedback">0</div>
+                    <div class="stat-label">Diese Woche</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Section -->
+        <div class="admin-section">
+            <h3>⚙️ KONFIGURATION</h3>
+            <div id="saveAlert" class="alert" style="display: none;">
+                ✓ Änderungen gespeichert!
+            </div>
+            <div class="config-grid">
+                <div class="form-group">
+                    <label>Google Maps Review URL</label>
+                    <input type="url" id="configGoogleUrl" placeholder="https://www.google.com/maps/...">
+                </div>
+            </div>
+            <button class="btn" onclick="saveConfig()">💾 Einstellungen speichern</button>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="admin-section">
+            <h3>📱 QR CODE SETUP</h3>
+            <p style="color: #999; margin-bottom: 15px;">Nutzen Sie diese URL für den QR-Code:</p>
+            <div class="qr-code">
+                <code id="qrCodeUrl"></code>
+            </div>
+            <p style="color: #666; font-size: 12px; margin-bottom: 15px;">
+                1. Kopieren Sie die URL oben<br>
+                2. Besuchen Sie <a href="https://www.qr-code-generator.com" target="_blank" style="color: #D4AF37;">qr-code-generator.com</a><br>
+                3. Erstellen Sie QR-Codes für Ihre Tische
+            </p>
+            <button class="btn" onclick="copyQRUrl()">📋 URL kopieren</button>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="admin-section">
+            <div class="feedback-header">
+                <h3>💬 FEEDBACK (<span id="feedbackCount">0</span>)</h3>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn" onclick="exportFeedback()" id="exportBtn" disabled>
+                        📥 CSV Export
+                    </button>
+                    <button class="btn btn-danger" onclick="clearAllFeedback()" id="clearBtn" disabled>
+                        🗑️ Alles löschen
+                    </button>
+                </div>
+            </div>
+            <div class="feedback-list" id="feedbackList">
+                <div class="no-feedback">Noch kein Feedback erhalten</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let config = {
+            googleMapsUrl: 'https://www.google.com/maps/place/Prime+Burger+Leipzig'
+        };
+
+        let feedbackData = [];
+
+        // Initialize
+        function init() {
+            loadConfig();
+            loadFeedback();
+            updateStats();
+            displayFeedbackList();
+            updateQRCodeUrl();
+        }
+
+        // Config functions
+        function loadConfig() {
+            const saved = localStorage.getItem('primeburger_config');
+            if (saved) {
+                try {
+                    config = JSON.parse(saved);
+                } catch (e) {
+                    console.error('Error loading config');
+                }
+            }
+            document.getElementById('configGoogleUrl').value = config.googleMapsUrl;
+        }
+
+        function saveConfig() {
+            config.googleMapsUrl = document.getElementById('configGoogleUrl').value;
+            localStorage.setItem('primeburger_config', JSON.stringify(config));
+            
+            // Show success message
+            const alert = document.getElementById('saveAlert');
+            alert.style.display = 'block';
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        }
+
+        // Feedback functions
+        function loadFeedback() {
+            const saved = localStorage.getItem('primeburger_feedback');
+            if (saved) {
+                try {
+                    feedbackData = JSON.parse(saved);
+                } catch (e) {
+                    feedbackData = [];
+                }
+            }
+        }
+
+        function saveFeedback() {
+            localStorage.setItem('primeburger_feedback', JSON.stringify(feedbackData));
+        }
+
+        function updateStats() {
+            const total = feedbackData.length;
+            const today = feedbackData.filter(f => {
+                const feedbackDate = new Date(f.timestamp);
+                const todayDate = new Date();
+                return feedbackDate.toDateString() === todayDate.toDateString();
+            }).length;
+
+            const weekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+            const week = feedbackData.filter(f => f.timestamp >= weekAgo).length;
+
+            document.getElementById('totalFeedback').textContent = total;
+            document.getElementById('todayFeedback').textContent = today;
+            document.getElementById('weekFeedback').textContent = week;
+        }
+
+        function displayFeedbackList() {
+            const list = document.getElementById('feedbackList');
+            const count = document.getElementById('feedbackCount');
+            const exportBtn = document.getElementById('exportBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            
+            count.textContent = feedbackData.length;
+            exportBtn.disabled = feedbackData.length === 0;
+            clearBtn.disabled = feedbackData.length === 0;
+            
+            if (feedbackData.length === 0) {
+                list.innerHTML = '<div class="no-feedback">Noch kein Feedback erhalten</div>';
+                return;
+            }
+            
+            list.innerHTML = feedbackData.map((fb, index) => `
+                <div class="feedback-item">
+                    <div class="feedback-header-info">
+                        <div class="feedback-date">${escapeHtml(fb.date)}</div>
+                        <button class="feedback-delete" onclick="deleteFeedback(${index})">
+                            🗑️ Löschen
+                        </button>
+                    </div>
+                    <div class="feedback-message">${escapeHtml(fb.message)}</div>
+                </div>
+            `).join('');
+        }
+
+        function deleteFeedback(index) {
+            if (confirm('Dieses Feedback wirklich löschen?')) {
+                feedbackData.splice(index, 1);
+                saveFeedback();
+                updateStats();
+                displayFeedbackList();
+            }
+        }
+
+        function clearAllFeedback() {
+            if (confirm('ACHTUNG: Wirklich ALLE Feedbacks löschen? Diese Aktion kann nicht rückgängig gemacht werden!')) {
+                feedbackData = [];
+                saveFeedback();
+                updateStats();
+                displayFeedbackList();
+            }
+        }
+
+        function exportFeedback() {
+            if (feedbackData.length === 0) return;
+            
+            const csv = 'Datum,Feedback\n' + 
+                feedbackData.map(f => `"${f.date}","${f.message.replace(/"/g, '""')}"`).join('\n');
+            
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `prime-burger-feedback-${new Date().toISOString().split('T')[0]}.csv`;
+            link.click();
+        }
+
+        function updateQRCodeUrl() {
+            const currentUrl = window.location.href.replace('feedback-admin.html', 'feedback.html');
+            document.getElementById('qrCodeUrl').textContent = currentUrl;
+        }
+
+        function copyQRUrl() {
+            const url = document.getElementById('qrCodeUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL in die Zwischenablage kopiert!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = url;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('URL in die Zwischenablage kopiert!');
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            loadFeedback();
+            updateStats();
+            displayFeedbackList();
+        }, 30000);
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Prime Burger Leipzig | Visual Journey</title>
+    <meta name="description" content="Discover our visual journey through exquisite burgers, fresh bowls and elegant restaurant ambiance at Prime Burger Leipzig.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8960F;
+            --light-gold: #F4E4C1;
+            --deep-black: #0A0A0A;
+            --soft-black: #1A1A1A;
+            --warm-white: #FFF8F0;
+            --text-gray: #A0A0A0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--deep-black);
+            color: var(--warm-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--deep-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 10px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.75rem 0;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .navbar.scrolled .logo-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: none;
+        }
+
+        .logo-container:hover .logo-img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .hamburger:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2.5px;
+            background: var(--primary-gold);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .nav-link {
+            color: var(--warm-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: color 0.3s;
+            padding: 0.75rem 1.5rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--dark-gold));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--deep-black);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 1rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--primary-gold);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-gold);
+            color: var(--deep-black);
+        }
+
+        .gallery-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 1rem 4rem;
+            background: linear-gradient(135deg, var(--deep-black), var(--soft-black));
+        }
+
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15), transparent 70%);
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tag {
+            font-size: 0.95rem;
+            color: var(--primary-gold);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--warm-white), var(--primary-gold), var(--warm-white));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: shimmer 3s infinite;
+            line-height: 1.1;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .gallery-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-section {
+            padding: 2rem 1rem;
+            background: var(--soft-black);
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: none;
+        }
+
+        .filter-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--primary-gold);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--deep-black);
+            border-color: var(--primary-gold);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .gallery-section {
+            padding: 3rem 1rem;
+            background: var(--deep-black);
+        }
+
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            background: var(--soft-black);
+            aspect-ratio: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: itemFadeIn 0.6s ease-out forwards;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.05s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.15s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.25s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(n+7) { animation-delay: 0.35s; }
+
+        @keyframes itemFadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--soft-black);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.95));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--warm-white);
+            margin-bottom: 0.3rem;
+            transform: translateY(20px);
+            transition: transform 0.4s;
+        }
+
+        .gallery-overlay .category {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            transition: transform 0.4s 0.05s;
+        }
+
+        .gallery-item:hover .gallery-overlay h3,
+        .gallery-item:hover .gallery-overlay .category {
+            transform: translateY(0);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.97);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            object-fit: contain;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-info {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .lightbox-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox-category {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -3rem;
+            right: -1rem;
+            font-size: 2.5rem;
+            color: var(--warm-white);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-gold);
+            background: rgba(212, 175, 55, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warm-white);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(212, 175, 55, 0.3);
+            color: var(--primary-gold);
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border: none;
+            border-radius: 50%;
+            color: var(--deep-black);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        @media (min-width: 576px) {
+            .logo-text {
+                display: block;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+
+            .nav-menu {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                flex-direction: row;
+                gap: 2.5rem;
+                box-shadow: none;
+                backdrop-filter: none;
+                padding: 0;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0;
+                width: auto;
+            }
+
+            .nav-cta {
+                margin-top: 0;
+            }
+
+            .lang-switcher {
+                margin-top: 0;
+            }
+
+            .filter-container {
+                justify-content: center;
+            }
+
+            .gallery-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+
+            .gallery-overlay h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="../images/icons/Logo Prime Burger.jpg" alt="Prime Burger Logo" class="logo-img">
+                <span class="logo-text">Prime Burger</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                <li><a href="index.html#menu" class="nav-link">Menu</a></li>
+                <li><a href="gallery-en.html" class="nav-link active">Gallery</a></li>
+                <li><a href="index.html#reservation" class="nav-cta">Reserve</a></li>
+                <div class="lang-switcher">
+                    <button class="lang-btn" onclick="window.location.href='../de/gallery-de.html'">DE</button>
+                    <button class="lang-btn active">EN</button>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="gallery-hero">
+        <div class="hero-content">
+            <div class="hero-tag">Visual Journey</div>
+            <h1 class="hero-title">Our Gallery</h1>
+            <p class="hero-subtitle">Immerse yourself in the world of Prime Burger - where every picture tells a story of culinary excellence and unforgettable moments</p>
+            <div class="gallery-stats">
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <span class="stat-label">Images</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Premium Quality</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="filter-section">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="burgers">Burgers</button>
+            <button class="filter-btn" data-filter="bowls">Bowls</button>
+            <button class="filter-btn" data-filter="ambience">Ambience</button>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item large" data-category="burgers" data-title="Classic Prime Burger" data-src="../images/gallery/Burger nr.1.jpg">
+                    <img src="../images/gallery/Burger nr.1.jpg" alt="Classic Prime Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Classic Prime Burger</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Deluxe Cheeseburger" data-src="../images/gallery/Burger nr.2.jpg">
+                    <img src="../images/gallery/Burger nr.2.jpg" alt="Deluxe Cheeseburger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Deluxe Cheeseburger</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Signature Special" data-src="../images/gallery/Burger nr.3.jpg">
+                    <img src="../images/gallery/Burger nr.3.jpg" alt="Signature Special" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Signature Special</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Gourmet Creation" data-src="../images/gallery/Burger nr.4.jpg">
+                    <img src="../images/gallery/Burger nr.4.jpg" alt="Gourmet Creation" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Gourmet Creation</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Premium Stack" data-src="../images/gallery/Burger nr.5.jpg">
+                    <img src="../images/gallery/Burger nr.5.jpg" alt="Premium Stack" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Premium Stack</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="burgers" data-title="Ultimate Burger" data-src="../images/gallery/Burger nr.6.jpg">
+                    <img src="../images/gallery/Burger nr.6.jpg" alt="Ultimate Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ultimate Burger</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="bowls" data-title="Fresh Garden Bowl" data-src="../images/gallery/Bowl nr.1.jpg">
+                    <img src="../images/gallery/Bowl nr.1.jpg" alt="Fresh Garden Bowl" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Fresh Garden Bowl</h3>
+                        <span class="category">Bowls</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="bowls" data-title="Mediterranean Delight" data-src="../images/gallery/Bowl nr.2.jpg">
+                    <img src="../images/gallery/Bowl nr.2.jpg" alt="Mediterranean Delight" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mediterranean Delight</h3>
+                        <span class="category">Bowls</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="bowls" data-title="Power Protein Bowl" data-src="../images/gallery/Bowl nr.3.jpg">
+                    <img src="../images/gallery/Bowl nr.3.jpg" alt="Power Protein Bowl" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Power Protein Bowl</h3>
+                        <span class="category">Bowls</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Signature Burger" data-src="../images/gallery/Burger nr.7.jpg">
+                    <img src="../images/gallery/Burger nr.7.jpg" alt="Signature Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Signature Burger</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="ambience" data-title="Elegant Interior" data-src="../images/gallery/Resturant Ambience nr.1.jpg">
+                    <img src="../images/gallery/Resturant Ambience nr.1.jpg" alt="Elegant Interior" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Elegant Interior</h3>
+                        <span class="category">Ambience</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="ambience" data-title="Dining Experience" data-src="../images/gallery/Resturant Ambience nr.2.jpg">
+                    <img src="../images/gallery/Resturant Ambience nr.2.jpg" alt="Dining Experience" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Dining Experience</h3>
+                        <span class="category">Ambience</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ambience" data-title="Cozy Atmosphere" data-src="../images/gallery/Resturant Ambience nr.3.jpg">
+                    <img src="../images/gallery/Resturant Ambience nr.3.jpg" alt="Cozy Atmosphere" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Cozy Atmosphere</h3>
+                        <span class="category">Ambience</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Gourmet Special" data-src="../images/gallery/Burger nr.8.jpg">
+                    <img src="../images/gallery/Burger nr.8.jpg" alt="Gourmet Special" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Gourmet Special</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Prime Selection" data-src="../images/gallery/Burger nr.9.jpg">
+                    <img src="../images/gallery/Burger nr.9.jpg" alt="Prime Selection" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Prime Selection</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="burgers" data-title="Chef's Masterpiece" data-src="../images/gallery/Burger nr.10.jpg">
+                    <img src="../images/gallery/Burger nr.10.jpg" alt="Chef's Masterpiece" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Chef's Masterpiece</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Double Delight" data-src="../images/gallery/Burger nr.11.jpg">
+                    <img src="../images/gallery/Burger nr.11.jpg" alt="Double Delight" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Double Delight</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Classic Perfection" data-src="../images/gallery/Burger nr.12.jpg">
+                    <img src="../images/gallery/Burger nr.12.jpg" alt="Classic Perfection" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Classic Perfection</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Deluxe Creation" data-src="../images/gallery/Burger nr.13.jpg">
+                    <img src="../images/gallery/Burger nr.13.jpg" alt="Deluxe Creation" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Deluxe Creation</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Premium Beef" data-src="../images/gallery/Burger nr.14.jpg">
+                    <img src="../images/gallery/Burger nr.14.jpg" alt="Premium Beef" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Premium Beef</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="burgers" data-title="Signature Stack" data-src="../images/gallery/Burger nr.15.jpg">
+                    <img src="../images/gallery/Burger nr.15.jpg" alt="Signature Stack" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Signature Stack</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Ultimate Feast" data-src="../images/gallery/Burger nr.16.jpg">
+                    <img src="../images/gallery/Burger nr.16.jpg" alt="Ultimate Feast" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ultimate Feast</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Gourmet Joy" data-src="../images/gallery/Burger nr.17.jpg">
+                    <img src="../images/gallery/Burger nr.17.jpg" alt="Gourmet Joy" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Gourmet Joy</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Prime Special" data-src="../images/gallery/Burger nr.18.jpg">
+                    <img src="../images/gallery/Burger nr.18.jpg" alt="Prime Special" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Prime Special</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Cheese Heaven" data-src="../images/gallery/Burger nr.19.jpg">
+                    <img src="../images/gallery/Burger nr.19.jpg" alt="Cheese Heaven" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Cheese Heaven</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="burgers" data-title="Supreme Burger" data-src="../images/gallery/Burger nr.20.jpg">
+                    <img src="../images/gallery/Burger nr.20.jpg" alt="Supreme Burger" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Supreme Burger</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Crispy Perfection" data-src="../images/gallery/Burger nr.21.jpg">
+                    <img src="../images/gallery/Burger nr.21.jpg" alt="Crispy Perfection" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Crispy Perfection</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Double Joy" data-src="../images/gallery/Burger nr.22.jpg">
+                    <img src="../images/gallery/Burger nr.22.jpg" alt="Double Joy" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Double Joy</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Gourmet Excellence" data-src="../images/gallery/Burger nr.23.jpg">
+                    <img src="../images/gallery/Burger nr.23.jpg" alt="Gourmet Excellence" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Gourmet Excellence</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Table Presentation" data-src="../images/gallery/Burger tisch 1.jpg">
+                    <img src="../images/gallery/Burger tisch 1.jpg" alt="Table Presentation" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Table Presentation</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item large" data-category="burgers" data-title="Two Burgers" data-src="../images/gallery/tow burgers.jpg">
+                    <img src="../images/gallery/tow burgers.jpg" alt="Two Burgers" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Two Burgers</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="burgers" data-title="Burger in Hand" data-src="../images/gallery/holding a burger.jpg">
+                    <img src="../images/gallery/holding a burger.jpg" alt="Burger in Hand" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Burger in Hand</h3>
+                        <span class="category">Burgers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <div class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</div>
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</div>
+            <div class="lightbox-info">
+                <div class="lightbox-title" id="lightboxTitle"></div>
+                <div class="lightbox-category" id="lightboxCategory"></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop">&#8593;</button>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxCategory = document.getElementById('lightboxCategory');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentIndex = 0;
+        let visibleItems = [];
+
+        function updateVisibleItems() {
+            visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+        }
+
+        function openLightbox(index) {
+            updateVisibleItems();
+            currentIndex = index;
+            const item = visibleItems[currentIndex];
+            
+            lightboxImg.src = item.getAttribute('data-src');
+            lightboxTitle.textContent = item.getAttribute('data-title');
+            lightboxCategory.textContent = item.getAttribute('data-category');
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex += direction;
+            
+            if (currentIndex < 0) {
+                currentIndex = visibleItems.length - 1;
+            } else if (currentIndex >= visibleItems.length) {
+                currentIndex = 0;
+            }
+            
+            const item = visibleItems[currentIndex];
+            lightboxImg.src = item.getAttribute('data-src');
+            lightboxTitle.textContent = item.getAttribute('data-title');
+            lightboxCategory.textContent = item.getAttribute('data-category');
+        }
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateVisibleItems();
+                const visibleIndex = visibleItems.indexOf(item);
+                openLightbox(visibleIndex);
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+        lightboxNext.addEventListener('click', () => navigateLightbox(1));
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigateLightbox(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateLightbox(1);
+            }
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
