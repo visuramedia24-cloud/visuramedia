@@ -213,33 +213,46 @@ img, video, iframe {
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     min-height: 100vh;
+    height: 100vh;
 }
 
 /* Hero background layers - optimized structure */
 .hero-static-background {
     will-change: auto; /* Only animate when needed */
+    height: 100%;
+    width: 100%;
 }
 
 .hero-gradient-layer {
     /* Instant load - no external resources */
     z-index: 1;
+    height: 100%;
+    width: 100%;
 }
 
 .hero-image-layer {
     /* Lazy-loaded background image */
     z-index: 2;
     will-change: opacity;
+    filter: blur(3px);
+    height: 100%;
+    width: 100%;
+    transform: scale(1.02); /* Compensate for blur edge clipping */
 }
 
 .hero-image-layer.loaded {
-    opacity: 0.3 !important; /* Subtle image behind gradient */
+    opacity: 0.2 !important; /* Darker and more subtle image behind gradient */
     will-change: auto;
+    filter: blur(3px);
+    transform: scale(1.02); /* Compensate for blur edge clipping */
 }
 
 .hero-overlay {
     /* Depth and visual interest */
     z-index: 3;
     pointer-events: none;
+    height: 100%;
+    width: 100%;
 }
 
 .gradient-text {
