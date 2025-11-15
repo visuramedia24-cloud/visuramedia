@@ -48,6 +48,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <!-- Preload critical fonts FIRST - eliminates 608ms chain -->
+    <link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/playfair-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
@@ -102,15 +106,10 @@
     <title>FAQ - Häufig gestellte Fragen | Visura Media</title>
 
     <!-- Performance & Resource Hints -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" 
-          rel="stylesheet">
 
     <!-- Anime.js for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>

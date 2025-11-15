@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build scripts (development only)
+scripts/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build outputs
+dist/
+build/
+
+# Environment variables
+.env
+.env.local

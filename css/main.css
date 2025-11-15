@@ -25,8 +25,8 @@
     --gradient-hero: linear-gradient(135deg, rgba(15, 20, 25, 0.95), rgba(10, 16, 24, 0.9), rgba(26, 35, 50, 0.85));
 
     /* Typography */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
     /* Spacing & Sizing */
     --spacing-xs: 0.5rem;
@@ -214,6 +214,8 @@ img, video, iframe {
     -webkit-overflow-scrolling: touch;
     min-height: 100vh;
     height: 100vh;
+    /* Reserve space to prevent layout shift */
+    contain: layout;
 }
 
 /* Hero background layers - optimized structure */
@@ -221,6 +223,7 @@ img, video, iframe {
     will-change: auto; /* Only animate when needed */
     height: 100%;
     width: 100%;
+    contain: layout style paint;
 }
 
 .hero-gradient-layer {
@@ -228,6 +231,7 @@ img, video, iframe {
     z-index: 1;
     height: 100%;
     width: 100%;
+    contain: layout style paint;
 }
 
 .hero-image-layer {
@@ -238,6 +242,7 @@ img, video, iframe {
     height: 100%;
     width: 100%;
     transform: scale(1.02); /* Compensate for blur edge clipping */
+    contain: layout style paint;
 }
 
 .hero-image-layer.loaded {
@@ -253,6 +258,7 @@ img, video, iframe {
     pointer-events: none;
     height: 100%;
     width: 100%;
+    contain: layout style paint;
 }
 
 .gradient-text {
@@ -262,7 +268,7 @@ img, video, iframe {
     background-clip: text;
 }
 
-.floating-animation { animation: float 6s ease-in-out infinite; will-change: transform; }
+.floating-animation { animation: float 6s ease-in-out infinite; will-change: transform; contain: layout style paint; }
 .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; will-change: box-shadow; }
 
 /* Disable heavy animations on mobile for performance */
@@ -274,11 +280,36 @@ img, video, iframe {
 .reveal-up { opacity: 0; transform: translateY(30px) translateZ(0); transition: all var(--transition-medium); will-change: opacity, transform; backface-visibility: hidden; }
 .reveal-up.revealed { opacity: 1; transform: translateY(0) translateZ(0); will-change: auto; }
 
-/* CRITICAL FIX: Hero elements should be visible immediately */
+/* =============================
+   FLASH FIX - Prevent FOUC (Flash of Unstyled Content)
+   ============================= */
+
+/* During initial page load, keep non-hero reveal elements hidden */
+html.loading .reveal-up:not(#hero .reveal-up) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Ensure elements stay hidden until loading class is removed */
+html.loading .reveal-up.revealed:not(#hero .reveal-up) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Hero elements always visible (no flash) */
 #hero .reveal-up {
     opacity: 1 !important;
     transform: translateY(0) !important;
     animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    visibility: visible !important;
+}
+
+/* Smooth transition when loading class is removed */
+html:not(.loading) .reveal-up {
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s;
 }
 
 @keyframes fadeInUp {
@@ -399,7 +430,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], input:has(+ #privacy-
 span[role="alert"]:not(.hidden) { display: block; margin-top: 0.25rem; }
 
 /* Typography */
-h1 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 900; letter-spacing: -0.02em; line-height: 0.95; }
+h1 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 900; letter-spacing: -0.02em; line-height: 0.95; min-height: 0.95em; }
 p, li { color: rgba(255, 255, 255, 0.85); }
 
 /* Spacing */
@@ -532,9 +563,36 @@ section > * + * { margin-top: clamp(2rem, 5vw, 4rem); }
     transform: translate(-50%, -50%) translate(calc(var(--orbit-diagonal) * -1), calc(var(--orbit-diagonal) * -1)) scale(1.08) !important;
 }
 
-/* Premium custom cursor - disabled on mobile for performance */
-.custom-cursor { position: fixed; width: 20px; height: 20px; border: 2px solid #C9A772; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%) translateZ(0); transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease; mix-blend-mode: difference; will-change: transform; }
-.custom-cursor-dot { position: fixed; width: 6px; height: 6px; background: #C9A772; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%) translateZ(0); transition: opacity 0.2s ease; will-change: transform; }
+/* Premium custom cursor - OPTIMIZED: Uses transform for positioning (GPU accelerated) */
+.custom-cursor { 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid #C9A772; 
+    border-radius: 50%; 
+    pointer-events: none; 
+    z-index: 9999; 
+    transform: translate(-50%, -50%) translateZ(0); 
+    transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease; 
+    mix-blend-mode: difference; 
+    will-change: transform; 
+}
+.custom-cursor-dot { 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 6px; 
+    height: 6px; 
+    background: #C9A772; 
+    border-radius: 50%; 
+    pointer-events: none; 
+    z-index: 9999; 
+    transform: translate(-50%, -50%) translateZ(0); 
+    transition: opacity 0.2s ease; 
+    will-change: transform; 
+}
 .custom-cursor.hover { width: 60px; height: 60px; border-width: 1px; background: rgba(201, 167, 114, 0.1); }
 .custom-cursor.drag { transform: translate(-50%, -50%) scale(0.8) translateZ(0); }
 

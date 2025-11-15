@@ -59,7 +59,7 @@ window.debounce = debounce;
 // CACHED DOM ELEMENTS AND LAYOUT VALUES
 // ====================================
 const cachedElements = { luxuryNav: null, sections: [], navLinks: [], parallaxElements: [], resultCards: [], faqItems: [] };
-const cachedLayout = { sectionOffsets: [], navOffset: 0, windowHeight: window.innerHeight, lastUpdate: Date.now() };
+const cachedLayout = { sectionOffsets: [], navOffset: 0, windowHeight: 0, lastUpdate: 0 };
 window.cachedElements = cachedElements;
 window.cachedLayout = cachedLayout;
 
@@ -74,13 +74,23 @@ function cacheDOM() {
 window.cacheDOM = cacheDOM;
 
 function cacheLayoutCalculations() {
-    const navOffset = cachedElements.luxuryNav ? cachedElements.luxuryNav.offsetHeight : 80;
-    const sectionOffsets = cachedElements.sections.map(section => ({ id: section.getAttribute('id'), offsetTop: section.offsetTop, clientHeight: section.clientHeight }));
-    const windowHeight = window.innerHeight;
-    cachedLayout.navOffset = navOffset;
-    cachedLayout.sectionOffsets = sectionOffsets;
-    cachedLayout.windowHeight = windowHeight;
-    cachedLayout.lastUpdate = Date.now();
+    // Batch all DOM reads together in requestAnimationFrame to avoid layout thrashing
+    requestAnimationFrame(() => {
+        // BATCH READ: All geometry queries together
+        const navOffset = cachedElements.luxuryNav ? cachedElements.luxuryNav.offsetHeight : 80;
+        const windowHeight = window.innerHeight;
+        const sectionOffsets = cachedElements.sections.map(section => ({
+            id: section.getAttribute('id'),
+            offsetTop: section.offsetTop,
+            clientHeight: section.clientHeight
+        }));
+        
+        // BATCH WRITE: Update cached values (no DOM writes here)
+        cachedLayout.navOffset = navOffset;
+        cachedLayout.sectionOffsets = sectionOffsets;
+        cachedLayout.windowHeight = windowHeight;
+        cachedLayout.lastUpdate = Date.now();
+    });
 }
 window.cacheLayoutCalculations = cacheLayoutCalculations;
 
@@ -152,19 +162,48 @@ function initEnhancedInteractions() {
 }
 window.initEnhancedInteractions = initEnhancedInteractions;
 
-// Result cards tilt
+// Result cards tilt - OPTIMIZED: Batch reads, use RAF for writes
 function initResultCards() {
     cachedElements.resultCards.forEach(card => {
         let cachedRect = null;
-        const mouseenterHandler = function() { cachedRect = this.getBoundingClientRect(); };
+        let rafId = null;
+        
+        const mouseenterHandler = function() {
+            // READ: Cache rect on enter
+            cachedRect = this.getBoundingClientRect();
+        };
+        
         const mousemoveHandler = throttle(function(e) {
+            // Cancel previous frame if still pending
+            if (rafId) cancelAnimationFrame(rafId);
+            
+            // READ: Get rect if not cached
             if (!cachedRect) cachedRect = this.getBoundingClientRect();
-            const x = e.clientX - cachedRect.left; const y = e.clientY - cachedRect.top;
-            const centerX = cachedRect.width / 2; const centerY = cachedRect.height / 2;
-            const rotateX = (y - centerY) / 10; const rotateY = (centerX - x) / 10;
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            
+            // READ: Calculate values from event
+            const x = e.clientX - cachedRect.left;
+            const y = e.clientY - cachedRect.top;
+            const centerX = cachedRect.width / 2;
+            const centerY = cachedRect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            // WRITE: Apply transform in RAF to prevent layout thrashing
+            rafId = requestAnimationFrame(() => {
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                rafId = null;
+            });
         }, 16);
-        const mouseleaveHandler = function() { this.style.transform = ''; cachedRect = null; };
+        
+        const mouseleaveHandler = function() {
+            if (rafId) cancelAnimationFrame(rafId);
+            // WRITE: Reset in RAF
+            requestAnimationFrame(() => {
+                this.style.transform = '';
+            });
+            cachedRect = null;
+        };
+        
         registerEventHandler(card, 'mouseenter', mouseenterHandler);
         registerEventHandler(card, 'mousemove', mousemoveHandler);
         registerEventHandler(card, 'mouseleave', mouseleaveHandler);
@@ -250,23 +289,32 @@ function initCustomCursor() {
     const isTablet = window.matchMedia('(min-width: 768px) and (max-width: 1024px)').matches;
     
     if (isTablet) {
-        // Simplified cursor for tablets (less CPU intensive)
+        // Simplified cursor for tablets - OPTIMIZED: Use RAF to batch style updates
+        let rafId = null;
         const mousemoveHandler = (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
+            // Cancel previous frame if still pending
+            if (rafId) cancelAnimationFrame(rafId);
+            
+            // Store mouse position
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // WRITE: Batch style updates in RAF to prevent forced reflows
+            rafId = requestAnimationFrame(() => {
+                cursor.style.transform = `translate(${x}px, ${y}px)`;
+                cursorDot.style.transform = `translate(${x}px, ${y}px)`;
+                rafId = null;
+            });
         };
         registerEventHandler(document, 'mousemove', mousemoveHandler);
     } else {
-        // Full smooth animation for desktop
+        // Full smooth animation for desktop - OPTIMIZED: Use transform
         function animateCursor() {
             cursorX += (mouseX - cursorX) * 0.3;
             cursorY += (mouseY - cursorY) * 0.3;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
+            // Use transform instead of left/top for GPU acceleration
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
             requestAnimationFrame(animateCursor);
         }
         animateCursor();
@@ -399,9 +447,15 @@ function initSmoothScrolling() {
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
-                const navHeight = cachedElements.luxuryNav ? cachedElements.luxuryNav.offsetHeight : 80;
-                const targetPosition = targetElement.offsetTop - navHeight - 20;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                // OPTIMIZED: Batch reads in RAF, then write scroll position
+                requestAnimationFrame(() => {
+                    // READ: Batch all geometry queries
+                    const navHeight = cachedElements.luxuryNav ? cachedElements.luxuryNav.offsetHeight : 80;
+                    const targetPosition = targetElement.offsetTop - navHeight - 20;
+                    
+                    // WRITE: Scroll (separate from reads)
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                });
             }
         };
         registerEventHandler(link, 'click', smoothScrollHandler);
@@ -900,16 +954,29 @@ window.lazyLoadHeroBackground = lazyLoadHeroBackground;
 // ====================================
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Cache DOM elements
+    // Cache DOM elements first
     cacheDOM();
+    
+    // OPTIMIZED: cacheLayoutCalculations already uses RAF internally
     cacheLayoutCalculations();
+    
     initLayoutRecalculation();
 
     // PRIORITY: Lazy load hero background for optimal TTI
     lazyLoadHeroBackground();
 
-    // Core features (always load)
-    initScrollAnimations();
+    // CRITICAL: Remove loading class after a small delay to prevent flash
+    // This ensures CSS is fully applied before revealing elements
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            document.documentElement.classList.remove('loading');
+        });
+    });
+
+    // Core features (always load) - slight delay to ensure smooth reveal
+    setTimeout(() => {
+        initScrollAnimations();
+    }, 50);
     initCounters();
     initFAQ();
     initProcessSteps();
@@ -1079,6 +1146,7 @@ window.ParallaxBackgroundEnhanced = ParallaxBackgroundEnhanced;
 class InteractiveGradient {
   constructor(element) {
     this.element = element;
+    this.rafId = null;
     this.init();
   }
   
@@ -1091,18 +1159,26 @@ class InteractiveGradient {
   }
   
   handleMouseMove(e) {
-    const rect = this.element.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    // OPTIMIZED: Batch read then write in RAF
+    if (this.rafId) cancelAnimationFrame(this.rafId);
     
-    this.element.style.background = `
-      radial-gradient(
-        circle at ${x}% ${y}%,
-        rgba(201, 167, 114, 0.15) 0%,
-        transparent 50%
-      ),
-      ${this.element.dataset.baseBackground || 'var(--primary-navy)'}
-    `;
+    this.rafId = requestAnimationFrame(() => {
+      // READ: Get bounding rect
+      const rect = this.element.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      // WRITE: Apply background (separate from read)
+      this.element.style.background = `
+        radial-gradient(
+          circle at ${x}% ${y}%,
+          rgba(201, 167, 114, 0.15) 0%,
+          transparent 50%
+        ),
+        ${this.element.dataset.baseBackground || 'var(--primary-navy)'}
+      `;
+      this.rafId = null;
+    });
   }
   
   handleMouseLeave() {
@@ -1311,12 +1387,16 @@ function initBackgroundEffects() {
     new ParallaxBackgroundEnhanced(parallaxElements);
   }
   
-  // Interactive gradient on CTA section
+  // Interactive gradient on CTA section - OPTIMIZED: Cache getComputedStyle in RAF
   const ctaSection = document.querySelector('.cta-section');
   if (ctaSection) {
-    const computedBg = getComputedStyle(ctaSection).background;
-    ctaSection.dataset.baseBackground = computedBg;
-    new InteractiveGradient(ctaSection);
+    requestAnimationFrame(() => {
+      // READ: getComputedStyle is expensive, do it once in RAF
+      const computedBg = getComputedStyle(ctaSection).background;
+      // WRITE: Store in dataset
+      ctaSection.dataset.baseBackground = computedBg;
+      new InteractiveGradient(ctaSection);
+    });
   }
   
   // Morphing blob for special sections

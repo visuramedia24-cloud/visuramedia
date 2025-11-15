@@ -1,0 +1,17 @@
+# Visura Media - Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories (if any)
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.reports/
+
+# Sitemap location (update with actual domain when deployed)
+Sitemap: https://visuramedia.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
