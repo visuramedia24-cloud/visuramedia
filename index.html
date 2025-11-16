@@ -675,32 +675,36 @@
         
         /* Mobile: Make icons even larger and ensure centering */
         @media (max-width: 768px) {
-            .problem-card .relative.mb-6 span {
-                font-size: 4rem !important; /* 64px on mobile */
-                line-height: 1 !important;
+            /* FIX: Make red circle SMALLER and icon BIGGER/CENTERED on mobile to match desktop */
+            .problem-card .absolute.bg-red-500 {
+                width: 12px !important;
+                height: 12px !important;
             }
-            
-            .problem-card .relative.mb-6 > div {
-                width: 100px !important;
-                height: 100px !important;
-                min-width: 100px !important;
-                min-height: 100px !important;
+            /* Target icon span inside gradient container for all 3 cards */
+            /* Ensure container centers icon perfectly */
+            .problem-card .w-20.h-20.rounded-2xl {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            /* Center and size icon for mobile */
+            .problem-card .w-20.h-20.rounded-2xl span,
+            .problem-card .bg-gradient-to-br.from-red-900 span {
+                font-size: 3rem !important; /* 48px, adjust if needed */
+                line-height: 1 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 100% !important;
+                height: 100% !important;
+                text-align: center !important;
+                transform: translateX(0) !important;
+                margin: 0 auto !important;
             }
         }
         
         /* Extra small mobile: Keep icons large */
-        @media (max-width: 480px) {
-            .problem-card .relative.mb-6 span {
-                font-size: 3.5rem !important; /* 56px on very small screens */
-            }
-            
-            .problem-card .relative.mb-6 > div {
-                width: 90px !important;
-                height: 90px !important;
-                min-width: 90px !important;
-                min-height: 90px !important;
-            }
-        }
+        /* Remove extra small overrides for icon and container - use desktop sizing for consistency */
 
         /* Utility Classes */
         .relative { position: relative; }
@@ -835,8 +839,8 @@
     </style>
     
     <!-- Deferred Full CSS Files -->
-    <link rel="stylesheet" href="css/main.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/tailwind.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/tailwind.min.css">
     
     <!-- Noscript Fallback for CSS -->
     <noscript>
