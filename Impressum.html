@@ -22,11 +22,9 @@
     
     <!-- Fonts -->
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/tailwind.min.css">
     
     <style>
         @keyframes bounce {
@@ -54,30 +52,34 @@
 <body>
     
     <!-- Navigation -->
-    <nav class="luxury-nav">
+    <nav id="luxuryNav" class="luxury-nav" role="navigation" aria-label="Hauptnavigation">
         <div class="luxury-nav-container">
             <div class="luxury-nav-gradient"></div>
             <div class="luxury-nav-content">
-                <a href="index.html" class="luxury-nav-logo">
-                    <div class="luxury-nav-logo-circle">
-                        <img src="assets/images/logos/visura-logo.svg" alt="Visura Media Logo" style="width: 32px; height: 32px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none; font-size: 24px; font-weight: 900; color: #0A1018;">V</span>
-                    </div>
-                    <span class="luxury-nav-logo-text">Visura Media</span>
-                </a>
-                
-                <div class="luxury-nav-links">
-                    <a href="index.html" class="luxury-nav-link">Home</a>
-                    <a href="services.html" class="luxury-nav-link">Services</a>
-                    <a href="Portfolio.html" class="luxury-nav-link">Portfolio</a>
-                    <a href="index.html#kontakt" class="luxury-nav-link">Kontakt</a>
+                <div class="luxury-nav-logo">
+                    <a href="#hero" aria-label="Zurück zur Startseite">
+                        <img src="assets/images/logos/logoname.svg" alt="Visura Media" width="120" height="28" class="h-7 w-auto" style="filter: brightness(0) invert(1) opacity(0.92);" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
                 </div>
-                
-                <button class="luxury-nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Menü öffnen">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
+
+                <div class="luxury-nav-links">
+                    <a href="#process" class="luxury-nav-link">Prozess</a>
+                    <a href="#portfolio" class="luxury-nav-link">Portfolio</a>
+                    <div class="relative group">
+                        <a href="services.html" class="luxury-nav-link">Services</a>
+                        <div class="hidden group-hover:block absolute top-full left-0 mt-2 w-64 glassmorphism rounded-lg p-4 shadow-xl">
+                            <a href="website-entwicklung.html" class="block py-2 text-gray-300 hover:text-gold">Website-Entwicklung</a>
+                            <a href="social-media-management.html" class="block py-2 text-gray-300 hover:text-gold">Social Media</a>
+                            <a href="ki-automatisierung.html" class="block py-2 text-gray-300 hover:text-gold">KI-Automatisierung</a>
+                        </div>
+                    </div>
+                    <a href="faq.html" class="luxury-nav-link">FAQ</a>
+                    <a href="#kontakt" class="luxury-nav-link btn-primary text-navy px-6 py-2 rounded-lg font-semibold">Erstgespräch</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="luxury-nav-mobile-btn" aria-label="Menü öffnen">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -85,24 +87,24 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="luxury-nav-mobile-menu" id="mobileMenu">
+    <div id="mobileMenu" class="luxury-nav-mobile-menu" role="navigation" aria-label="Mobile Navigation">
         <div class="luxury-nav-mobile-header">
             <span class="luxury-nav-mobile-title">Menü</span>
-            <button class="luxury-nav-mobile-close" onclick="toggleMobileMenu()" aria-label="Menü schließen">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
+            <button id="closeMobileMenu" class="luxury-nav-mobile-close" aria-label="Menü schließen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
         <div class="luxury-nav-mobile-links">
-            <a href="index.html" class="luxury-nav-mobile-link">Home</a>
+            <a href="#process" class="luxury-nav-mobile-link">Prozess</a>
+            <a href="#portfolio" class="luxury-nav-mobile-link">Portfolio</a>
             <a href="services.html" class="luxury-nav-mobile-link">Services</a>
-            <a href="Portfolio.html" class="luxury-nav-mobile-link">Portfolio</a>
-            <a href="index.html#kontakt" class="luxury-nav-mobile-link">Kontakt</a>
+            <a href="faq.html" class="luxury-nav-mobile-link">FAQ</a>
+            <a href="#kontakt" class="luxury-nav-mobile-link btn-primary text-navy px-6 py-3 rounded-lg font-semibold mt-4 text-center">Erstgespräch</a>
         </div>
     </div>
-    <div class="luxury-nav-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+    <div id="mobileMenuOverlay" class="luxury-nav-overlay"></div>
 
     <!-- Main Content -->
     <main>
@@ -206,6 +208,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="js/main.min.js" defer></script>
+    <script src="js/page-transitions-fix.js" defer></script>
 </body>
 </html>

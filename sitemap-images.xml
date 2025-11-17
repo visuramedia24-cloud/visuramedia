@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Hero & Brand Images -->
+  <url>
+    <loc>https://visuramedia.de/</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/hero-bg.jpg</image:loc>
+      <image:title>Visura Media - Website Entwicklung Leipzig</image:title>
+      <image:caption>Professionelle Webentwicklung und digitales Marketing in Leipzig, Deutschland</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/logo.png</image:loc>
+      <image:title>Visura Media Logo</image:title>
+      <image:caption>Visura Media - Digital Marketing Agentur Leipzig</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service Images -->
+  <url>
+    <loc>https://visuramedia.de/website-entwicklung.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/services/web-development.jpg</image:loc>
+      <image:title>Website Entwicklung Service</image:title>
+      <image:caption>Schnelle WordPress Websites mit unter 1 Sekunde Ladezeit</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://visuramedia.de/social-media-management.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/services/social-media.jpg</image:loc>
+      <image:title>Social Media Management</image:title>
+      <image:caption>Professionelles Social Media Marketing für Unternehmen</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://visuramedia.de/ki-automatisierung.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/services/ai-automation.jpg</image:loc>
+      <image:title>KI Automatisierung</image:title>
+      <image:caption>AI-gestützte Prozessautomatisierung für Unternehmen</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Portfolio Images -->
+  <url>
+    <loc>https://visuramedia.de/Portfolio.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/portfolio/project-1.jpg</image:loc>
+      <image:title>Projekt 1 - E-Commerce Website</image:title>
+      <image:caption>Responsive E-Commerce Lösung mit WooCommerce</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/portfolio/project-2.jpg</image:loc>
+      <image:title>Projekt 2 - Corporate Website</image:title>
+      <image:caption>Unternehmenswebsite mit SEO-Optimierung</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/portfolio/project-3.jpg</image:loc>
+      <image:title>Projekt 3 - Landing Page</image:title>
+      <image:caption>Conversion-optimierte Landing Page</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Case Study Images -->
+  <url>
+    <loc>https://visuramedia.de/Case%20Studies.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/case-studies/case-1.jpg</image:loc>
+      <image:title>Case Study - Conversion Rate Optimization</image:title>
+      <image:caption>300% Steigerung der Conversion Rate durch UX-Optimierung</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/case-studies/case-2.jpg</image:loc>
+      <image:title>Case Study - SEO Success</image:title>
+      <image:caption>Top 3 Rankings in Google für kompetitive Keywords</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Team/About Images -->
+  <url>
+    <loc>https://visuramedia.de/About%20Us.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/team/team.jpg</image:loc>
+      <image:title>Visura Media Team</image:title>
+      <image:caption>Unser Team von Digital Marketing Experten in Leipzig</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Service Icons & Graphics -->
+  <url>
+    <loc>https://visuramedia.de/services.html</loc>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/icons/seo-icon.svg</image:loc>
+      <image:title>SEO Services</image:title>
+      <image:caption>Suchmaschinenoptimierung für bessere Rankings</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/icons/web-design-icon.svg</image:loc>
+      <image:title>Web Design</image:title>
+      <image:caption>Modernes, responsives Webdesign</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://visuramedia.de/assets/images/icons/marketing-icon.svg</image:loc>
+      <image:title>Digital Marketing</image:title>
+      <image:caption>Ganzheitliche Online Marketing Strategien</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
