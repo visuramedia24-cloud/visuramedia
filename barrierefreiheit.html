@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <!-- Enhanced SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CRITICAL: Inline styles to prevent FOUC -->
+    <style>
+        /* Critical nav and base styles - loaded immediately to prevent FOUC */
+        html { visibility: visible !important; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0A1018;
+            color: #E5E7EB;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        /* Navigation critical styles */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 16, 24, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .luxury-nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .luxury-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .luxury-nav-logo img {
+            height: 1.75rem;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Hero section spacing */
+        #hero {
+            padding-top: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0A1018;
+        }
+    </style>
+    <meta name="description"
+        content="BFSG-Konformität für Online-Shops. Seit 28. Juni 2025 Pflicht. Bußgeld bis €100.000. Kostenlose Prüfung. Fix in 48-72 Stunden. Leipzig.">
+    <meta name="author" content="Visura Media">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://visuramedia.de/barrierefreiheit.html">
+
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="DE-SN">
+    <meta name="geo.placename" content="Leipzig">
+    <meta name="geo.position" content="51.3397;12.3731">
+    <meta name="ICBM" content="51.3397, 12.3731">
+
+    <!-- Language -->
+    <meta name="language" content="German">
+    <link rel="alternate" hreflang="de" href="https://visuramedia.de/barrierefreiheit.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BFSG-Konformität für Online-Shops | Visura Media">
+    <meta property="og:description"
+        content="Bußgeld bis €100.000 vermeiden. Kostenlose Prüfung. Fix in 48-72 Stunden. Leipzig.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://visuramedia.de/barrierefreiheit.html">
+    <meta property="og:image" content="https://visuramedia.de/assets/images/bfsg-audit.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Visura Media">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BFSG-Konformität für Online-Shops">
+    <meta name="twitter:description"
+        content="Bußgeld bis €100.000 vermeiden. Kostenlose Prüfung. Fix in 48-72 Stunden.">
+    <meta name="twitter:image" content="https://visuramedia.de/assets/images/bfsg-audit.jpg">
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#0A1018">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "BFSG Barrierefreiheitsprüfung",
+      "description": "BFSG-Konformitätsprüfung und -behebung für Online-Shops. Kostenlose Prüfung, Fix in 48-72 Stunden.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Visura Media",
+        "url": "https://visuramedia.de",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Leipzig",
+          "addressRegion": "Sachsen",
+          "addressCountry": "DE"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "BFSG Behebung",
+        "price": "750",
+        "priceCurrency": "EUR",
+        "description": "Einmalige Behebung aller BFSG-Verstöße",
+        "availability": "https://schema.org/InStock"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Deutschland"
+      }
+    }
+    </script>
+
+    <title>Ihr Online-Shop ist nicht BFSG-konform | Bußgeld bis €100.000</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logos/VM%20transparent.svg">
+
+    <!-- Resource Hints for External CDNs -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Full CSS - Load synchronously to prevent FOUC -->
+    <link rel="stylesheet" href="css/main-merged.min.css">
+    <link rel="stylesheet" href="css/tailwind.prod.min.css">
+
+    <!-- Google Fonts - Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="font-body">
+
+    <!-- Navigation -->
+    <nav id="luxuryNav" class="luxury-nav" role="navigation" aria-label="Hauptnavigation">
+        <div class="luxury-nav-container">
+            <div class="luxury-nav-gradient"></div>
+            <div class="luxury-nav-content">
+                <div class="luxury-nav-logo">
+                    <a href="index.html" aria-label="Zurück zur Startseite">
+                        <img src="assets/images/logos/logoname.svg" alt="Visura Media" width="120" height="28"
+                            class="h-7 w-auto brightness-0 invert" style="filter: brightness(0) invert(1);" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                </div>
+
+                <div class="luxury-nav-links">
+                    <a href="index.html" class="luxury-nav-link">Hauptseite</a>
+                    <a href="services.html" class="luxury-nav-link">Alle Services</a>
+                    <a href="#prozess" class="luxury-nav-link">Prozess</a>
+                    <a href="#kontakt"
+                        class="luxury-nav-link btn-primary text-navy px-6 py-2 rounded-lg font-semibold">Kostenlose Prüfung</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="luxury-nav-mobile-btn" aria-label="Menü öffnen">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                        role="presentation">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="luxury-nav-mobile-menu" role="navigation" aria-label="Mobile Navigation">
+        <div class="luxury-nav-mobile-header">
+            <span class="luxury-nav-mobile-title">Menü</span>
+            <button id="closeMobileMenu" class="luxury-nav-mobile-close" aria-label="Menü schließen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                    role="presentation">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="luxury-nav-mobile-links">
+            <a href="index.html" class="luxury-nav-mobile-link">Hauptseite</a>
+            <a href="services.html" class="luxury-nav-mobile-link">Alle Services</a>
+            <a href="#prozess" class="luxury-nav-mobile-link">Prozess</a>
+            <a href="#kontakt"
+                class="luxury-nav-mobile-link btn-primary text-navy px-6 py-3 rounded-lg font-semibold mt-4 text-center">Kostenlose Prüfung</a>
+        </div>
+    </div>
+
+    <div id="mobileMenuOverlay" class="luxury-nav-overlay"></div>
+
+    <!-- Hero Section with Pain Headline -->
+    <section id="hero" class="hero-bg relative min-h-screen flex items-center justify-center overflow-visible"
+        role="main" style="padding-top: 100px;">
+
+        <!-- Background Layers -->
+        <div class="hero-static-background absolute inset-0 z-0">
+            <div class="hero-gradient-layer absolute inset-0"
+                style="background: linear-gradient(135deg, rgba(10, 16, 24, 0.98) 0%, rgba(26, 35, 50, 0.95) 50%, rgba(10, 16, 24, 0.98) 100%);">
+            </div>
+            <div class="hero-overlay absolute inset-0"
+                style="background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 16, 24, 0.3) 100%);">
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" style="margin-top: -80px;">
+
+                <!-- Pain Headline -->
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight reveal-up">
+                    Ihr Online-Shop ist nicht <span class="gradient-text">barrierefrei.</span><br>
+                    Bußgeld bis <span class="text-red-500">€100.000.</span>
+                </h1>
+
+                <!-- Subhead: Solution + Speed -->
+                <p class="text-xl md:text-2xl text-text-secondary mb-8 reveal-up">
+                    Kostenlose Prüfung. Fix in <strong class="text-gold">48-72 Stunden</strong>.
+                </p>
+
+                <!-- Single CTA -->
+                <div class="mb-12 reveal-up">
+                    <a href="#kontakt"
+                        class="btn-primary inline-block px-8 py-4 rounded-lg font-bold text-lg text-navy transition-all hover:scale-105">
+                        Kostenlose Prüfung anfordern
+                    </a>
+                </div>
+
+                <!-- Trust Badge -->
+                <p class="text-sm text-text-muted reveal-up">
+                    Ein Service von <a href="index.html" class="text-gold hover:underline">Visura Media</a>, Leipzig
+                </p>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Problem Section: What is BFSG -->
+    <section class="py-24 bg-secondary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-center reveal-up">
+                    Das Problem
+                </h2>
+
+                <div class="glassmorphism p-8 rounded-2xl reveal-up">
+                    <p class="text-lg text-text-secondary mb-6">
+                        Seit dem <strong class="text-gold">28. Juni 2025</strong> ist das
+                        <strong>Barrierefreiheitsstärkungsgesetz (BFSG)</strong> in Kraft.
+                    </p>
+
+                    <ul class="space-y-4 text-text-secondary">
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-red-500 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span><strong>Pflicht für:</strong> Online-Shops mit >10 Mitarbeitern ODER >€2M
+                                Umsatz</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-red-500 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span><strong>Strafen:</strong> Bußgeld bis €100.000 + Abmahnungen +
+                                Reputationsschaden</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-red-500 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span><strong>Häufige Verstöße:</strong> Fehlende Alt-Texte, schlechte Kontraste, keine
+                                Tastaturnavigation, fehlende ARIA-Labels</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-red-500 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span><strong>Standard:</strong> WCAG 2.1 Level AA erforderlich</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-gray-600">
+                        <p class="text-center text-sm text-text-muted">
+                            <a href="https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html" class="text-gold hover:underline" target="_blank" rel="noopener noreferrer">Mehr über BFSG
+                                erfahren →</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Proof Section: Placeholder for Audit Screenshot -->
+    <section class="py-24 bg-primary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-center reveal-up">
+                    So sieht ein fehlgeschlagener Audit aus
+                </h2>
+
+                <p class="text-lg text-text-secondary mb-8 text-center reveal-up">
+                    Die meisten Online-Shops scheitern an mehreren Punkten gleichzeitig.
+                </p>
+
+                <!-- Audit Screenshots -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Image 1 - Left -->
+                    <div class="glassmorphism p-4 rounded-xl reveal-up">
+                        <picture class="cursor-pointer" data-lightbox="assets/images/barrierefreiheit/Accessibility-Audits-1.webp">
+                            <source srcset="assets/images/barrierefreiheit/Accessibility-Audits-1.webp" type="image/webp">
+                            <img src="assets/images/barrierefreiheit/Accessibility-Audits  1.jpg"
+                                alt="Fehlgeschlagener Accessibility-Audit Screenshot 1 - WCAG Verstöße"
+                                class="w-full h-auto rounded-lg hover:opacity-90 transition-opacity"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
+                    </div>
+
+                    <!-- Image 2 - Right -->
+                    <div class="glassmorphism p-4 rounded-xl reveal-up">
+                        <picture class="cursor-pointer" data-lightbox="assets/images/barrierefreiheit/Accessibility-Audits-2.webp">
+                            <source srcset="assets/images/barrierefreiheit/Accessibility-Audits-2.webp" type="image/webp">
+                            <img src="assets/images/barrierefreiheit/Accessibility-Audits  2 .jpg"
+                                alt="Fehlgeschlagener Accessibility-Audit Screenshot 2 - Konformitätsprobleme"
+                                class="w-full h-auto rounded-lg hover:opacity-90 transition-opacity"
+                                loading="lazy"
+                                decoding="async">
+                        </picture>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Leistungen Section -->
+    <section id="leistungen" class="py-24 bg-secondary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-12 text-center reveal-up">
+                    Unsere Leistungen
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <!-- Fix 1 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">ARIA-Labels</h3>
+                                <p class="text-text-secondary text-sm">Alle interaktiven Elemente erhalten korrekte
+                                    ARIA-Beschriftungen für Screenreader</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fix 2 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">Tastaturnavigation</h3>
+                                <p class="text-text-secondary text-sm">Volle Bedienbarkeit mit Tastatur, sichtbare
+                                    Focus-States</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fix 3 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">Kontrastverhältnisse</h3>
+                                <p class="text-text-secondary text-sm">Text und Hintergrund entsprechen WCAG 2.1 AA
+                                    Standard (mind. 4.5:1)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fix 4 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">Alt-Texte</h3>
+                                <p class="text-text-secondary text-sm">Alle Bilder erhalten beschreibende Alt-Attribute
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fix 5 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">Focus States</h3>
+                                <p class="text-text-secondary text-sm">Sichtbare Fokusindikatoren für alle interaktiven
+                                    Elemente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fix 6 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-gold flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">Formular-Zugänglichkeit</h3>
+                                <p class="text-text-secondary text-sm">Labels, Fehlermeldungen und Hilfestellungen
+                                    barrierefrei umgesetzt</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Prozess Section -->
+    <section id="prozess" class="py-24 bg-primary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-center reveal-up">
+                    Unser Prozess
+                </h2>
+
+                <p class="text-lg text-text-secondary mb-12 text-center reveal-up">
+                    Von der Prüfung bis zur Zertifizierung in nur 48-72 Stunden
+                </p>
+
+                <div class="grid md:grid-cols-4 gap-6">
+
+                    <!-- Step 1 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gold bg-opacity-20 mb-4">
+                            <span class="text-gold font-bold text-xl">1</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold mb-3">Prüfung</h3>
+                        <p class="text-text-secondary text-sm">
+                            Kostenloser Audit Ihres Online-Shops. Sie erhalten einen detaillierten Bericht mit allen BFSG-Verstößen.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gold bg-opacity-20 mb-4">
+                            <span class="text-gold font-bold text-xl">2</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold mb-3">Angebot</h3>
+                        <p class="text-text-secondary text-sm">
+                            Transparentes Festpreis-Angebot basierend auf dem Prüfungsbericht. Keine versteckten Kosten.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gold bg-opacity-20 mb-4">
+                            <span class="text-gold font-bold text-xl">3</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold mb-3">Behebung</h3>
+                        <p class="text-text-secondary text-sm">
+                            Wir beheben alle identifizierten Verstöße. Ihr Shop wird WCAG 2.1 Level AA konform. Fertig in 48-72h.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gold bg-opacity-20 mb-4">
+                            <span class="text-gold font-bold text-xl">4</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold mb-3">Nachweis</h3>
+                        <p class="text-text-secondary text-sm">
+                            Abschlussprüfung und Konformitätsbericht mit Erklärungsvorlage. Ihr Shop ist rechtssicher.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center mt-12 reveal-up">
+                    <a href="#kontakt"
+                        class="btn-primary inline-block px-8 py-4 rounded-lg font-bold text-lg text-navy transition-all hover:scale-105">
+                        Jetzt kostenlos prüfen lassen
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-secondary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-center reveal-up">
+                    Häufig gestellte Fragen
+                </h2>
+
+                <p class="text-lg text-text-secondary mb-12 text-center reveal-up">
+                    Alles, was Sie über BFSG-Konformität wissen müssen
+                </p>
+
+                <div class="space-y-6">
+
+                    <!-- FAQ 1 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Gilt das BFSG für meinen Shop?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Ja, wenn Sie mehr als 10 Mitarbeiter haben ODER über €2 Mio. Umsatz/Bilanzsumme machen. Die Kleinstunternehmen-Ausnahme gilt nur, wenn beide Kriterien nicht erfüllt sind.
+                            <a href="#kontakt" class="text-gold hover:underline font-semibold">Prüfen Sie kostenlos mit uns</a>.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Was passiert bei Verstößen?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Bußgelder bis €100.000, Abmahnungen und Imageschaden drohen. Häufige Probleme: fehlende Alt-Texte, schlechte Kontraste, keine Tastaturnavigation, fehlende ARIA-Labels.
+                            <strong class="text-white">Wir beheben das in 48-72 Stunden</strong>.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Welcher Standard gilt?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            WCAG 2.1 Level AA ist erforderlich (Kontrast mind. 4.5:1, ARIA-Labels, Focus-States, Tastaturnavigation). Unser Konformitätsbericht macht Sie vollständig konform.
+                            <a href="https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">Mehr über BFSG</a>
+                        </p>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Wie lange dauert die Umsetzung?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Vollständig in <strong class="text-white">48-72 Stunden</strong> nach Audit. Inklusive aller Behebungen, Abschlussprüfung und Konformitätsbericht mit Barrierefreiheitserklärung.
+                            <a href="#kontakt" class="text-gold hover:underline font-semibold">Jetzt prüfen lassen</a>
+                        </p>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Bekomme ich einen Nachweis?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Ja, detaillierter Prüfbericht (WCAG-Scores, Screenshots) + fertige Barrierefreiheitserklärung (BFSG-Pflicht). Rechtssicher gegen Abmahnungen und Bußgelder.
+                            <a href="#preise" class="text-gold hover:underline">Preise ansehen</a>
+                        </p>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Was kostet der Einstieg?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            <strong class="text-white">Kostenlose Prüfung</strong> mit detailliertem Bericht. Behebung ab €750 als Festpreis. Optional: €99/Monat fortlaufendes Monitoring. Transparent, keine versteckten Kosten.
+                            <a href="#kontakt" class="text-gold hover:underline font-semibold">Angebot anfordern</a>
+                        </p>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Muss ich eine Barrierefreiheitserklärung erstellen?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Ja, nach Anlage 3 BFSG ist eine Erklärung Pflicht (Dienstbeschreibung, Erfüllungsstatus, zuständige Behörde). Wir beraten Sie und stellen Muster zur Verfügung.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div class="glassmorphism p-6 rounded-xl reveal-up">
+                        <h3 class="font-display text-xl font-bold mb-3">Wird mein Shop nach der Umsetzung langsamer?</h3>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Nein, im Gegenteil. Barrierefreie Websites sind oft besser strukturiert und optimiert. ARIA-Labels und semantisches HTML verbessern auch die SEO-Performance.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center mt-12 reveal-up">
+                    <a href="#kontakt"
+                        class="btn-primary inline-block px-8 py-4 rounded-lg font-bold text-lg text-navy transition-all hover:scale-105">
+                        Noch Fragen? Kostenlos beraten lassen
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="preise" class="py-24 bg-primary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-12 text-center reveal-up">
+                    Preise
+                </h2>
+
+                <div class="space-y-6">
+
+                    <!-- Main Offer -->
+                    <div class="glassmorphism p-8 rounded-2xl border-2 border-gold reveal-up">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="font-display text-2xl font-bold mb-2">Einmalige Behebung</h3>
+                                <p class="text-text-secondary">Alle BFSG-Verstöße werden behoben. WCAG 2.1 AA konform.
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-display text-3xl font-bold text-gold">ab €750</p>
+                                <p class="text-xs text-text-muted">je nach Umfang</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 mb-6 text-sm text-text-secondary">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Kostenlose Erstprüfung
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Detaillierter Audit-Bericht
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Behebung aller Verstöße
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Abschlussprüfung + Konformitätsbericht
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <strong>Fertig in 48-72 Stunden</strong>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#kontakt"
+                                class="btn-primary inline-block px-8 py-4 rounded-lg font-bold text-lg text-navy transition-all hover:scale-105">
+                                Jetzt Prüfung anfordern
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Optional: Monitoring -->
+                    <div class="glassmorphism p-8 rounded-2xl reveal-up">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="font-display text-xl font-bold mb-2">Optional: Monitoring + Alerts</h3>
+                                <p class="text-text-secondary text-sm">Automatische Überwachung neuer Verstöße nach
+                                    Updates</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-display text-2xl font-bold text-gold">€99/Monat</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 text-sm text-text-secondary">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Monatliche Scans
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                E-Mail-Alerts bei neuen Verstößen
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-gold mr-2 flex-shrink-0 mt-0.5" fill="currentColor"
+                                    viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Monatlicher Bericht
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="kontakt" class="py-24 bg-secondary-navy relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto">
+
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 text-center reveal-up">
+                    Kostenlose Prüfung anfordern
+                </h2>
+
+                <p class="text-lg text-text-secondary mb-8 text-center reveal-up">
+                    Wir prüfen Ihren Shop kostenfrei und senden Ihnen einen detaillierten Bericht mit allen Verstößen.
+                </p>
+
+                <!-- Contact Form -->
+                <form id="secureContactForm" class="contact-form space-y-6 glassmorphism p-8 rounded-2xl reveal-up" novalidate
+                    aria-label="Kontaktformular">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+                            Name <span class="text-red-400">*</span>
+                        </label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all"
+                            placeholder="Ihr Name" aria-describedby="name-error">
+                        <span id="name-error" class="text-red-400 text-sm mt-1 hidden" role="alert"></span>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                            E-Mail <span class="text-red-400">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all"
+                            placeholder="ihre.email@beispiel.de" aria-describedby="email-error">
+                        <span id="email-error" class="text-red-400 text-sm mt-1 hidden" role="alert"></span>
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">
+                            Telefon <span class="text-red-400">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" required minlength="6"
+                            class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all"
+                            placeholder="+49 123 456789" aria-describedby="phone-error">
+                        <span id="phone-error" class="text-red-400 text-sm mt-1 hidden" role="alert"></span>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+                            Nachricht (optional)
+                        </label>
+                        <textarea id="message" name="message" rows="4"
+                            class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all resize-none"
+                            placeholder="Ihre Nachricht..."></textarea>
+                    </div>
+
+                    <div style="position: absolute; left: -9999px;">
+                        <label for="website">Website (do not fill)</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <button type="submit"
+                        class="btn-primary text-navy px-12 py-4 rounded-xl font-bold text-lg w-full hover:shadow-2xl transition-all">
+                        <span>Jetzt kostenlos anfragen</span>
+                    </button>
+
+                    <p class="text-sm text-gray-400 text-center">
+                        Mit dem Absenden stimmen Sie unserer
+                        <a href="Datenschutz.html" class="text-gold hover:underline">Datenschutzerklärung</a>
+                        zu.
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section py-12 relative overflow-visible">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-8">
+                <p class="text-sm text-text-muted mb-2">Ein Service von</p>
+                <a href="index.html" class="text-gold hover:underline text-lg font-display font-bold">Visura Media</a>
+                <p class="text-xs text-text-muted mt-1">Leipzig</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-text-secondary mb-8">
+                <a href="Impressum.html" class="hover:text-gold transition-colors">Impressum</a>
+                <a href="Datenschutz.html" class="hover:text-gold transition-colors">Datenschutz</a>
+                <a href="AGB.html" class="hover:text-gold transition-colors">AGB</a>
+                <a href="index.html" class="hover:text-gold transition-colors">Zurück zur Hauptseite</a>
+            </div>
+
+            <div class="text-center text-xs text-text-muted">
+                <p>&copy; 2025 Visura Media. Alle Rechte vorbehalten.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+
+    <!-- Consolidated JavaScript (Minified) -->
+    <script src="js/main-merged.min.js" defer></script>
+
+    <!-- Lightbox Modal -->
+    <div id="imageLightbox" class="fixed inset-0 z-[9999] bg-black bg-opacity-95 items-center justify-center p-4" style="display: none;" data-action="close-lightbox" role="dialog" aria-modal="true" aria-label="Bildansicht">
+        <button id="lightboxClose" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gold transition-colors z-[10000]" data-action="close-lightbox" aria-label="Schließen">
+            &times;
+        </button>
+
+        <!-- Previous Button -->
+        <button id="lightboxPrev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-gold transition-colors z-[10000] p-4" data-action="lightbox-prev" aria-label="Vorheriges Bild" style="display: none;">
+            ‹
+        </button>
+
+        <!-- Next Button -->
+        <button id="lightboxNext" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl font-bold hover:text-gold transition-colors z-[10000] p-4" data-action="lightbox-next" aria-label="Nächstes Bild" style="display: none;">
+            ›
+        </button>
+
+        <img id="lightboxImage" src="" alt="" class="max-w-[70vw] max-h-[80vh] object-contain rounded-lg" style="max-width: 800px;" data-action="lightbox-image-click">
+
+        <!-- Image counter -->
+        <div id="lightboxCounter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black bg-opacity-50 px-4 py-2 rounded-full" style="display: none;">
+            <span id="currentImageNum">1</span> / <span id="totalImages">2</span>
+        </div>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script>
+        // Gallery images array
+        const galleryImages = [
+            {
+                src: 'assets/images/barrierefreiheit/Accessibility-Audits-1.webp',
+                alt: 'Fehlgeschlagener Accessibility-Audit Screenshot 1 - WCAG Verstöße'
+            },
+            {
+                src: 'assets/images/barrierefreiheit/Accessibility-Audits-2.webp',
+                alt: 'Fehlgeschlagener Accessibility-Audit Screenshot 2 - Konformitätsprobleme'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        let previousFocus = null;
+
+        function openLightbox(imageSrc) {
+            // Find current image index
+            currentImageIndex = galleryImages.findIndex(img => img.src === imageSrc);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+
+            // Store previously focused element for accessibility
+            previousFocus = document.activeElement;
+
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const prevBtn = document.getElementById('lightboxPrev');
+            const nextBtn = document.getElementById('lightboxNext');
+            const counter = document.getElementById('lightboxCounter');
+            const closeBtn = document.getElementById('lightboxClose');
+
+            // Update image
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxImage.alt = galleryImages[currentImageIndex].alt;
+
+            // Show/hide navigation buttons and counter (only if more than 1 image)
+            if (galleryImages.length > 1) {
+                prevBtn.style.display = 'block';
+                nextBtn.style.display = 'block';
+                counter.style.display = 'block';
+                updateCounter();
+            }
+
+            // Show lightbox
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            // Focus on close button for accessibility (focus trap)
+            setTimeout(() => closeBtn.focus(), 100);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('imageLightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // Restore focus to previously focused element
+            if (previousFocus) {
+                previousFocus.focus();
+                previousFocus = null;
+            }
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+
+            // Loop around
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+
+            // Update image
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxImage.alt = galleryImages[currentImageIndex].alt;
+
+            updateCounter();
+        }
+
+        function updateCounter() {
+            document.getElementById('currentImageNum').textContent = currentImageIndex + 1;
+            document.getElementById('totalImages').textContent = galleryImages.length;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('imageLightbox');
+            const isOpen = lightbox.style.display === 'flex';
+
+            if (!isOpen) return;
+
+            switch(event.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    navigateLightbox(-1);
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    navigateLightbox(1);
+                    break;
+                case 'Tab':
+                    // Focus trap - keep focus within lightbox
+                    const focusableElements = lightbox.querySelectorAll('button');
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+
+                    if (event.shiftKey && document.activeElement === firstElement) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    } else if (!event.shiftKey && document.activeElement === lastElement) {
+                        event.preventDefault();
+                        firstElement.focus();
+                    }
+                    break;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

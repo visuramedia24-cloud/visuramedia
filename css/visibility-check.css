@@ -1,0 +1,440 @@
+/* ============================================
+   VISIBILITY CHECK - CUSTOM STYLES
+   Visura Media Digital Dominanz Score Tool
+   ============================================ */
+
+/* Glassmorphism effect */
+.glassmorphism {
+    background: rgba(26, 35, 50, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Font faces */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Loading states */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(10, 16, 24, 0.3);
+    border-top-color: #0A1018;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.btn-loading span {
+    opacity: 0;
+}
+
+/* Form focus states */
+input:focus,
+select:focus {
+    box-shadow: 0 0 0 3px rgba(201, 167, 114, 0.3);
+}
+
+/* Input validation states */
+input:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: #10b981;
+}
+
+/* Score card animations */
+.score-card {
+    transition: all 0.3s ease;
+}
+
+.score-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201, 167, 114, 0.5);
+}
+
+/* Progress bar animation */
+#progressBar {
+    transition: width 0.5s ease-out;
+}
+
+/* Pulse animation for critical warnings */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-animate {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* Section transitions */
+section {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+section.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Button hover effects */
+button[type="submit"] {
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button[type="submit"]:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A1018;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #C9A772, #E8D4B8);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C9A772;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-8xl {
+        font-size: 4rem !important;
+    }
+    
+    .text-9xl {
+        font-size: 5rem !important;
+    }
+    
+    .glassmorphism {
+        padding: 1.5rem !important;
+    }
+    
+    /* Adjust form inputs on mobile */
+    input, select {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+    
+    /* Stack trust badges vertically on small screens */
+    .flex-wrap > span.text-gray-600 {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Further mobile optimizations */
+    .text-5xl {
+        font-size: 2rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 1.75rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Print styles (for PDF export) */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .glassmorphism {
+        background: white;
+        border: 1px solid #ccc;
+    }
+    
+    button, a[href^="#"] {
+        display: none;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .glassmorphism {
+        border: 2px solid white;
+    }
+    
+    input, select {
+        border-width: 3px;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 3px solid #C9A772;
+    outline-offset: 2px;
+}
+
+/* Loading spinner enhancement */
+@keyframes spin-glow {
+    0% {
+        transform: rotate(0deg);
+        filter: drop-shadow(0 0 5px #C9A772);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px #C9A772);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: drop-shadow(0 0 5px #C9A772);
+    }
+}
+
+#loading .animate-spin {
+    animation: spin-glow 1s linear infinite;
+}
+
+/* Results reveal animation */
+#results.reveal {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Score number count-up effect */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.score-reveal {
+    animation: countUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Warning badge pulse */
+.bg-red-500 {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Opportunity card shine effect */
+@keyframes shine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* CTA button glow effect */
+a[href*="kontakt"],
+button[type="submit"] {
+    box-shadow: 0 0 20px rgba(201, 167, 114, 0.3);
+    transition: all 0.3s ease;
+}
+
+a[href*="kontakt"]:hover,
+button[type="submit"]:hover {
+    box-shadow: 0 0 40px rgba(201, 167, 114, 0.6);
+}
+
+/* Tooltip styles (for future enhancements) */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: rgba(10, 16, 24, 0.95);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   GOOGLE API ATTRIBUTION BADGE ANIMATIONS
+   ============================================ */
+
+/* Badge glow animation */
+@keyframes badge-glow {
+    0%, 100% {
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+    50% {
+        box-shadow: 0 5px 25px rgba(66, 133, 244, 0.3);
+    }
+}
+
+.google-api-attribution > div {
+    animation: badge-glow 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.google-api-attribution > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(66, 133, 244, 0.4) !important;
+}
+
+/* Mobile responsive adjustments for API badge */
+@media (max-width: 640px) {
+    .google-api-attribution > div {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px 20px !important;
+    }
+    
+    .google-api-attribution > div > div:last-child {
+        margin-left: 0 !important;
+        margin-top: 8px;
+    }
+}

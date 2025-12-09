@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Website Entwicklung, SEO & Marketing Automatisierung. WordPress Websites mit unter 1s Ladezeit, Google Seite-1-Rankings. Standort Leipzig | Deutschlandweit remote.">
+    <meta name="author" content="Visura Media">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://visuramedia.de">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="DE-SN">
+    <meta name="geo.placename" content="Leipzig">
+    <meta name="geo.position" content="51.3397;12.3731">
+    <meta name="ICBM" content="51.3397, 12.3731">
+
+    <!-- Language -->
+    <meta name="language" content="German">
+    <link rel="alternate" hreflang="de" href="https://visuramedia.de">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Website Entwicklung, SEO & Marketing Automatisierung | Visura Media">
+    <meta property="og:description"
+        content="Wir bauen schnelle WordPress Websites, optimieren für Google Seite-1-Rankings und automatisieren Marketing-Prozesse. Standort Leipzig | Deutschlandweit remote.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://visuramedia.de">
+    <meta property="og:image" content="https://visuramedia.de/assets/images/hero-bg.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Visura Media">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Website Entwicklung, SEO & Marketing Automatisierung">
+    <meta name="twitter:description"
+        content="WordPress Websites mit unter 1s Ladezeit. Google Seite-1-Rankings. Marketing Automatisierung. Standort Leipzig | Deutschlandweit remote.">
+    <meta name="twitter:image" content="https://visuramedia.de/assets/images/hero-bg.jpg">
+    <meta name="twitter:site" content="@visuramedia">
+    <meta name="twitter:creator" content="@visuramedia">
+
+    <meta name="theme-color" content="#0A1018">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Website Entwicklung, SEO & Marketing Automatisierung | Visura Media</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logos/VM%20transparent.svg">
+
+    <!-- Resource Hints for External CDNs (50-150ms faster resource loading) -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Font Preloads (Critical for FCP) -->
+    <link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/playfair-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CRITICAL Inline CSS - Nav + Hero ONLY (renders instantly) -->
+    <style>
+/* MINIMAL Critical CSS - ONLY Nav + Hero */
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('../assets/fonts/inter-400-latin.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url('../assets/fonts/inter-600-latin.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-weight:900;font-display:swap;src:url('../assets/fonts/playfair-900-latin.woff2') format('woff2')}
+:root{--primary-navy:#0A1018;--color-gold:#C9A772;--color-gold-light:#E8D4B8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0A1018 0%,#1a2332 50%,#0A1018 100%);color:#fff}
+.luxury-nav{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:8;width:calc(100% - 48px);max-width:1200px}
+.luxury-nav-container{background:rgba(10,16,24,0.75);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;box-shadow:0 8px 32px rgba(0,0,0,0.4);padding:16px 64px}
+.luxury-nav-content{display:flex;justify-content:space-between;align-items:center}
+.luxury-nav-logo img{height:28px}
+.luxury-nav-links{display:flex;gap:32px;align-items:center}
+.luxury-nav-link{color:rgba(255,255,255,0.9);text-decoration:none;font-weight:500;font-size:15px}
+.luxury-nav-mobile-btn{display:none}
+#hero{min-height:100vh}
+.hero-bg{background:linear-gradient(135deg,rgba(10,16,24,0.98) 0%,rgba(26,35,50,0.95) 50%,rgba(10,16,24,0.98) 100%);padding-top:140px;min-height:100vh}
+.hero-static-background{position:absolute;inset:0;z-index:1}
+.hero-gradient-layer{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,16,24,0.98),rgba(26,35,50,0.95),rgba(10,16,24,0.98));z-index:1}
+.hero-image-layer{position:absolute;inset:0;z-index:2;opacity:0;filter:blur(3px);transform:scale(1.02);background-size:cover;background-position:center}
+.hero-image-layer.loaded{opacity:0.2}
+.hero-overlay{position:absolute;inset:0;z-index:3}
+.glassmorphism{background:rgba(10,16,24,0.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}
+.btn-primary{background:linear-gradient(135deg,var(--color-gold),var(--color-gold-light));color:var(--primary-navy);font-weight:700;box-shadow:0 4px 12px rgba(201,167,114,0.3)}
+.gradient-text{background:linear-gradient(135deg,var(--color-gold),var(--color-gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.font-display{font-family:'Playfair Display',serif}
+.relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.inset-0{inset:0}.z-10{z-index:10}.flex{display:flex}.inline-flex{display:inline-flex}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.flex-col{flex-direction:column}.text-center{text-align:center}.mx-auto{margin-left:auto;margin-right:auto}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-2{border-width:2px}.border-gold{border-color:var(--color-gold)}.font-semibold{font-weight:600}.font-bold{font-weight:700}.font-black{font-weight:900}.text-sm{font-size:0.875rem}.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}.text-5xl{font-size:3rem}.leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}.max-w-3xl{max-width:48rem}.max-w-5xl{max-width:64rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.pointer-events-none{pointer-events:none}.text-white{color:#fff}.text-navy{color:var(--primary-navy)}.text-gold{color:var(--color-gold)}.text-gray-300{color:#d1d5db}.text-gray-400{color:#9ca3af}.space-x-2>*+*{margin-left:0.5rem}.w-5{width:1.25rem}.h-5{height:1.25rem}.w-8{width:2rem}.h-8{height:2rem}.container{max-width:100%;width:100%;margin:0 auto}
+@media(max-width:768px){.luxury-nav{width:calc(100% - 16px);top:8px}.luxury-nav-container{padding:12px 16px;border-radius:16px}.luxury-nav-logo img{height:24px}.luxury-nav-links{display:none}.luxury-nav-mobile-btn{display:block;background:none;border:none;color:white}.hero-bg{padding-top:100px}.text-5xl{font-size:clamp(2rem,8vw,3rem)}.text-xl{font-size:1rem}.px-6{padding-left:1rem;padding-right:1rem}}
+@media(min-width:768px){.md\:text-7xl{font-size:4.5rem}.md\:text-2xl{font-size:1.5rem}}
+@media(min-width:1024px){.lg\:text-8xl{font-size:6rem}}
+    </style>
+
+    <!-- Full CSS - Async Load (non-blocking, minified with clean-css) -->
+    <link rel="preload" href="css/main-merged.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/main-merged.min.css"></noscript>
+    <link rel="preload" href="css/tailwind.prod.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/tailwind.prod.min.css"></noscript>
+
+    <!-- Schema.org Data (Keep as-is, search engines need this) -->
+    <script type="application/ld+json" id="schemaDataMain">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Visura Media",
+      "description": "Website Entwicklung Leipzig: Professionelle WordPress Websites, SEO-Optimierung und Marketing Automatisierung für Unternehmen in Leipzig und Sachsen.",
+      "url": "https://visuramedia.de",
+      "logo": "https://visuramedia.de/assets/images/logos/VM%20transparent.svg",
+      "image": "https://visuramedia.de/assets/images/hero-bg.jpg",
+      "telephone": "+49 1575 6778247",
+      "email": "info@visuramedia.de",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leipzig",
+        "addressRegion": "Sachsen",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.3397",
+        "longitude": "12.3731"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Leipzig"},
+        {"@type": "State", "name": "Sachsen"},
+        {"@type": "Country", "name": "Deutschland"}
+      ],
+      "priceRange": "€€€",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Website Entwicklung & SEO Leipzig",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Entwicklung Leipzig",
+              "description": "Professionelle WordPress Entwicklung, SEO-Optimierung und Marketing Automatisierung"
+            }
+          }
+        ]
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "sameAs": [
+        "https://www.linkedin.com/company/visuramedia",
+        "https://www.instagram.com/visuramedia"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "27"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Website Entwicklung & SEO Leipzig",
+        "description": "Professionelle Website Entwicklung in Leipzig mit SEO-Optimierung und Marketing Automatisierung. Limitierte Verfügbarkeit.",
+        "price": "3500",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2025-01-01"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json" id="schemaDataOrg">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Visura Media",
+      "alternateName": "VM",
+      "url": "https://visuramedia.de",
+      "logo": "https://visuramedia.de/assets/images/logos/VM%20transparent.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+49 1575 6778247",
+        "contactType": "Customer Service",
+        "areaServed": "DE",
+        "availableLanguage": "German"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://visuramedia.de"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Über uns",
+        "item": "https://visuramedia.de#uber-uns"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Leistungen",
+        "item": "https://visuramedia.de#leistungen"
+      }]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Was genau bekomme ich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Premium-Website (5-7 Seiten), Google My Business Optimierung, Instagram-Setup mit Content-Strategie, WhatsApp Business Integration, Analytics-Dashboard, 2 Wochen Launch-Support, Schulung Ihres Teams."
+        }
+      },{
+        "@type": "Question",
+        "name": "Wie schnell sehe ich erste Ergebnisse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Erste Anfragen typischerweise innerhalb von 2-4 Wochen nach Launch. Volle Wirkung (Google-Rankings, organischer Traffic) nach 2-3 Monaten."
+        }
+      },{
+        "@type": "Question",
+        "name": "Benötige ich technische Kenntnisse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Wir übernehmen die komplette technische Umsetzung und Wartung."
+        }
+      },{
+        "@type": "Question",
+        "name": "Was unterscheidet Sie von anderen Agenturen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wir bauen komplette digitale Systeme, die langfristig funktionieren. Lokale Leipzig-Expertise, begrenzte Kundenanzahl, und bewiesene 347% Wachstumsergebnisse."
+        }
+      }]
+    }
+    </script>
+    <link rel="stylesheet" href="css/process-timeline.css">
+</head>
+
+<body class="text-white">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Header with Navigation -->
+    <header>
+        <!-- Navigation -->
+        <nav id="luxuryNav" class="luxury-nav" role="navigation" aria-label="Hauptnavigation">
+        <div class="luxury-nav-container">
+            <div class="luxury-nav-gradient"></div>
+            <div class="luxury-nav-content">
+                <div class="luxury-nav-logo">
+                    <a href="#hero" aria-label="Zurück zur Startseite">
+                        <img src="assets/images/logos/logoname.svg" alt="Visura Media" width="120" height="28"
+                            class="h-7 w-auto" loading="eager" decoding="async" fetchpriority="high">
+                    </a>
+                </div>
+
+                <div class="luxury-nav-links">
+                    <a href="#process" class="luxury-nav-link">Prozess</a>
+                    <div class="relative group services-dropdown">
+                        <a href="services.html" class="luxury-nav-link">Services</a>
+                        <div
+                            class="hidden group-hover:block absolute top-full left-0 mt-2 w-64 glassmorphism rounded-lg p-4 shadow-xl services-dropdown-menu">
+                            <a href="services.html#services"
+                                class="block py-2 text-gray-300 hover:text-gold">Alle Services</a>
+                            <a href="barrierefreiheit.html"
+                                class="block py-2 text-gray-300 hover:text-gold">BFSG-Konformität</a>
+                        </div>
+                    </div>
+                    <a href="faq.html" class="luxury-nav-link">FAQ</a>
+                    <a href="#kontakt"
+                        class="luxury-nav-link btn-primary text-navy px-6 py-2 rounded-lg font-semibold">Erstgespräch</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="luxury-nav-mobile-btn" aria-label="Menü öffnen">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                        role="presentation">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="luxury-nav-mobile-menu" role="navigation" aria-label="Mobile Navigation">
+        <div class="luxury-nav-mobile-header">
+            <span class="luxury-nav-mobile-title">Menü</span>
+            <button id="closeMobileMenu" class="luxury-nav-mobile-close" aria-label="Menü schließen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                    role="presentation">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="luxury-nav-mobile-links">
+            <a href="#process" class="luxury-nav-mobile-link">Prozess</a>
+            <a href="services.html" class="luxury-nav-mobile-link">Services</a>
+            <a href="faq.html" class="luxury-nav-mobile-link">FAQ</a>
+            <a href="#kontakt"
+                class="luxury-nav-mobile-link btn-primary text-navy px-6 py-3 rounded-lg font-semibold mt-4 text-center">Erstgespräch</a>
+        </div>
+    </div>
+
+    <div id="mobileMenuOverlay" class="luxury-nav-overlay"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden"
+            aria-labelledby="hero-heading">
+            <div class="hero-static-background">
+                <div class="hero-gradient-layer"></div>
+                <div class="hero-image-layer" data-bg-image="assets/images/hero-bg.webp"></div>
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div
+                    class="floating-animation absolute top-20 left-10 w-20 h-20 bg-gold opacity-10 rounded-full blur-xl">
+                </div>
+                <div
+                    class="floating-animation absolute bottom-20 right-10 w-32 h-32 bg-gold opacity-5 rounded-full blur-2xl">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h1 id="hero-heading"
+                        class="font-display font-black text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 reveal-up">
+                        Website Entwicklung,<br>
+                        <span class="gradient-text">SEO & Marketing</span><br>
+                        Automatisierung
+                    </h1>
+
+                    <p class="text-xl md:text-2xl text-gray-300 mb-6 leading-relaxed max-w-3xl mx-auto reveal-up">
+                        Wir bauen schnelle <strong class="text-white">WordPress Websites</strong>, optimieren für Google
+                        Seite-1-Rankings und automatisieren Marketing-Prozesse. Remote in ganz Deutschland.
+                    </p>
+
+                    <div
+                        class="inline-flex items-center gap-2 px-6 py-3 glassmorphism rounded-full border border-gold mb-10 reveal-up">
+                        <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-gold font-semibold">Standort: Leipzig | Deutschlandweit remote</span>
+                    </div>
+
+                    <div
+                        class="hero-cta-container flex flex-col sm:flex-row justify-center items-center gap-4 mb-10 reveal-up">
+                        <a href="#kontakt"
+                            class="btn-primary text-navy px-10 py-5 rounded-xl font-bold text-lg inline-flex items-center justify-center space-x-2 group w-full sm:w-auto">
+                            <span>Kostenloses Erstgespräch Leipzig</span>
+                            <span class="group-hover:translate-x-1 transition-transform">»</span>
+                        </a>
+                        <a href="visibility-check.html"
+                            class="inline-flex items-center gap-3 px-8 py-4 glassmorphism rounded-xl border-2 border-gold text-white hover:bg-gold hover:text-navy transition-all duration-300 group w-full sm:w-auto">
+                            <img src="assets/images/magnifying-icon.svg" alt="Magnifying Glass" width="32" height="32"
+                                class="w-8 h-8">
+                            <div class="text-left">
+                                <div class="font-bold text-base">Kostenloser Digital-Check</div>
+                                <div class="text-sm text-gray-400 group-hover:text-navy">60 Sekunden zu Ihrem Visibility
+                                    Score</div>
+                            </div>
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-400 mb-10 reveal-up">
+                        <div class="flex items-center gap-2">
+                            <span class="text-gold text-lg">•</span>
+                            <span>Messbare Ergebnisse</span>
+                        </div>
+                        <span class="text-gray-600">•</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gold text-lg">•</span>
+                            <span>Keine Vertragslaufzeit</span>
+                        </div>
+                        <span class="text-gray-600">•</span>
+                    </div>
+
+                    <div class="glassmorphism rounded-xl p-6 inline-flex items-center gap-4 reveal-up">
+                        <div class="flex -space-x-2">
+                            <div
+                                class="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-navy font-bold border-2 border-navy">
+                                A</div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-navy font-bold border-2 border-navy">
+                                B</div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-navy font-bold border-2 border-navy">
+                                C</div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-navy-light flex items-center justify-center text-gold text-xs font-bold border-2 border-gold">
+                                +27</div>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-white font-semibold">Vertraut von führenden Marken</div>
+                            <div class="text-gray-400 text-sm">die nicht folgen, sondern dominieren</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="system" class="py-16 md:py-32 relative overflow-visible">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy via-navy-light to-navy opacity-50"></div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12 md:mb-16 reveal-up">
+                    <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        Unsere Leistungen:<br>
+                        <span class="gradient-text">Website Entwicklung & SEO Leipzig</span>
+                    </h2>
+
+                    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                        Professionelle Website Entwicklung in Leipzig und Umgebung.<br>
+                        <strong class="text-white">WordPress Websites, SEO-Optimierung und Marketing Automatisierung aus
+                            einer Hand.</strong>
+                    </p>
+                </div>
+
+                <!-- Service Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Card 1 -->
+                    <article class="service-card reveal-up">
+                        <div class="service-card-image">
+                            <img src="assets/images/optimized/website card-400w.webp"
+                                srcset="assets/images/optimized/website card-400w.webp 400w, assets/images/optimized/website card-800w.webp 800w"
+                                sizes="(max-width: 768px) 100vw, 380px" alt="Digitale Präsenz" width="380" height="211"
+                                loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">Professionelle Website Entwicklung Leipzig</h3>
+                            <p class="service-card-description">
+                                <strong style="color: #ff6b6b;">Herausforderung:</strong> Website zu
+                                langsam? Keine Google-Rankings?<br><br>
+                                <strong style="color: #C9A772;">Unsere Lösung:</strong><br>
+                                <strong>WordPress Website Entwicklung:</strong> Unter 1s Ladezeit
+                                (LCP)<br><br>
+                                <strong>SEO Leipzig:</strong> Technisches SEO & Content-Strategie<br><br>
+                                <strong>Mobile-optimiert:</strong> Responsive Webdesign für alle
+                                Geräte<br><br>
+                                <strong style="color: #4ade80;">Ergebnis:</strong> WordPress Websites, die
+                                Besucher zu Kunden machen
+                            </p>
+                            <a href="services.html#services"
+                                class="service-learn-more mt-4 inline-flex items-center text-gold hover:text-gold-light transition-colors">
+                                <span>Mehr erfahren</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="service-card reveal-up">
+                        <div class="service-card-image">
+                            <img src="assets/images/optimized/social media card-400w.webp"
+                                srcset="assets/images/optimized/social media card-400w.webp 400w, assets/images/optimized/social media card-800w.webp 800w"
+                                sizes="(max-width: 768px) 100vw, 380px" alt="Social Media & Branding" width="380"
+                                height="214" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">SEO-Optimierung Leipzig</h3>
+                            <p class="service-card-description">
+                                <strong style="color: #ff6b6b;">Herausforderung:</strong> Keine
+                                Google-Rankings? Zu wenig organischer Traffic?<br><br>
+                                <strong style="color: #C9A772;">Unsere Lösung:</strong><br>
+                                <strong>Lokales SEO Leipzig:</strong> Google Business Profile
+                                Optimierung<br><br>
+                                <strong>On-Page SEO:</strong> Keyword-Recherche & Content-Planung<br><br>
+                                <strong>Technisches SEO:</strong> Performance & Core Web Vitals<br><br>
+                                <strong style="color: #4ade80;">Ziel:</strong> Google Seite 1 Rankings für
+                                Ihre wichtigsten Suchbegriffe
+                            </p>
+                            <a href="services.html#services"
+                                class="service-learn-more mt-4 inline-flex items-center text-gold hover:text-gold-light transition-colors">
+                                <span>Mehr erfahren</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="service-card reveal-up">
+                        <div class="service-card-image">
+                            <img src="assets/images/optimized/review 1-400w.webp"
+                                srcset="assets/images/optimized/review 1-400w.webp 400w, assets/images/optimized/review 1-800w.webp 800w"
+                                sizes="(max-width: 768px) 100vw, 380px" alt="Automatisierung & Bewertungssystem"
+                                width="380" height="222" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-card-content">
+                            <h3 class="service-card-title">Marketing Automatisierung Leipzig</h3>
+                            <p class="service-card-description">
+                                <strong style="color: #ff6b6b;">Herausforderung:</strong> Marketing manuell?
+                                Zu viel Zeitaufwand?<br><br>
+                                <strong style="color: #C9A772;">Unsere Lösung:</strong><br>
+                                <strong>Zapier & Make.com Workflows:</strong> Lead-Erfassung &
+                                Follow-up<br><br>
+                                <strong>E-Mail Marketing:</strong> Automatisierte Sequenzen<br><br>
+                                <strong>CRM-Integration:</strong> HubSpot, Pipedrive, etc.<br><br>
+                                <strong style="color: #4ade80;">Ergebnis:</strong> Mehr Zeit für Ihr
+                                Kerngeschäft
+                            </p>
+                            <a href="services.html#services"
+                                class="service-learn-more mt-4 inline-flex items-center text-gold hover:text-gold-light transition-colors">
+                                <span>Mehr erfahren</span>
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center mt-12 md:mt-16 reveal-up">
+                    <div class="text-2xl md:text-3xl mb-3 font-medium text-gold-light">DE + EN</div>
+                    <p class="text-xl md:text-2xl mb-2 text-gold-light">Komplett zweisprachig – während Ihre Konkurrenz
+                        noch übersetzt.</p>
+                    <p class="text-lg md:text-xl italic text-gray-400">Doppelte Reichweite. Exponentielles Wachstum.
+                        Unverzichtbar.</p>
+                </div>
+
+                <div class="text-center mt-8 md:mt-12 reveal-up">
+                    <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+                        <span
+                            class="px-4 py-2 rounded-full text-gold text-sm md:text-base border border-gold bg-gold-transparent">Blitzschnell
+                            live</span>
+                        <span
+                            class="px-4 py-2 rounded-full text-gold text-sm md:text-base border border-gold bg-gold-transparent">Exklusiv
+                            & limitiert</span>
+                        <span
+                            class="px-4 py-2 rounded-full text-gold text-sm md:text-base border border-gold bg-gold-transparent">Bewiesen
+                            & garantiert</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Deep Dive Preview -->
+        <section class="py-16 bg-navy-light relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-4">
+                        Detaillierte <span class="gradient-text">Service-Informationen</span </h2>
+                        <p class="text-lg text-gray-300">Erfahren Sie mehr über unsere spezialisierten Services</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="services.html#services"
+                        class="glassmorphism rounded-xl p-6 hover:border-gold transition-all group flex flex-col">
+                        <h3 class="font-display text-xl font-bold text-white mb-4 group-hover:text-gold">Website
+                            Entwicklung Leipzig</h3>
+                        <p class="text-gray-300 text-base mb-6 flex-grow leading-relaxed">WordPress Websites mit unter
+                            1s Ladezeit + SEO-Optimierung für Google Seite 1</p>
+                        <span class="text-gold text-base font-semibold inline-flex items-center mt-auto">Alle Details
+                            ansehen →</span>
+                    </a>
+
+                    <a href="services.html#services"
+                        class="glassmorphism rounded-xl p-6 hover:border-gold transition-all group flex flex-col">
+                        <h3 class="font-display text-xl font-bold text-white mb-4 group-hover:text-gold">SEO-Optimierung
+                            Leipzig</h3>
+                        <p class="text-gray-300 text-base mb-6 flex-grow leading-relaxed">Lokales SEO Leipzig +
+                            Technisches SEO für bessere Google-Rankings</p>
+                        <span class="text-gold text-base font-semibold inline-flex items-center mt-auto">Alle Details
+                            ansehen →</span>
+                    </a>
+
+                    <a href="services.html#services"
+                        class="glassmorphism rounded-xl p-6 hover:border-gold transition-all group flex flex-col">
+                        <h3 class="font-display text-xl font-bold text-white mb-4 group-hover:text-gold">Marketing
+                            Automatisierung</h3>
+                        <p class="text-gray-300 text-base mb-6 flex-grow leading-relaxed">Zapier & Make.com Workflows +
+                            CRM-Integration für mehr Effizienz</p>
+                        <span class="text-gold text-base font-semibold inline-flex items-center mt-auto">Alle Details
+                            ansehen →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem-Agitate-Solve Section -->
+        <section class="py-32 lg:py-48 relative" aria-labelledby="problem-heading">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy via-red-900 via-opacity-5 to-navy"></div>
+
+            <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+                <div class="absolute top-1/4 left-10 w-32 h-32 bg-red-500 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-1/4 right-10 w-40 h-40 bg-gold rounded-full blur-3xl floating-animation">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20 reveal-up">
+                    <div
+                        class="inline-block mb-6 px-6 py-3 bg-red-900 bg-opacity-20 border border-red-400 border-opacity-40 rounded-full">
+                        <span class="text-red-300 text-sm font-bold uppercase tracking-wider">Die Herausforderung für
+                            Unternehmen in Leipzig</span>
+                    </div>
+
+                    <h2 id="problem-heading"
+                        class="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                        Website zu langsam?<br>
+                        <span class="gradient-text">Google-Rankings schwach?</span>
+                    </h2>
+
+                    <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                        Ohne professionelle <strong class="text-white">Website Entwicklung</strong> bleiben Chancen in
+                        Leipzig ungenutzt.<br>
+                        Unsere Website Entwicklung und SEO Leipzig lösen das.
+                    </p>
+                </div>
+
+                <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-16">
+                    <!-- Problem 1 -->
+                    <article
+                        class="problem-card glassmorphism rounded-2xl p-8 border border-gray-700 hover:border-red-400 transition-all duration-500 group reveal-up">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-900 to-red-700 bg-opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <span
+                                    class="filter grayscale group-hover:grayscale-0 transition-all duration-500">🔄</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+                        </div>
+
+                        <h3
+                            class="font-display text-2xl font-bold text-white mb-4 group-hover:text-red-300 transition-colors">
+                            Verlust #1</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                            <strong class="text-white">Langsame Website = verlorene Kunden</strong>
+                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Ladezeit über 3 Sekunden? 53% der Besucher springen ab. Ohne professionelle Website
+                            Entwicklung verlieren Sie täglich potenzielle Kunden in Leipzig.
+                        </p>
+
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <span class="text-red-400 text-sm font-semibold">Verlorener Umsatz: ~€45.000/Jahr</span>
+                        </div>
+                    </article>
+
+                    <!-- Problem 2 -->
+                    <article
+                        class="problem-card glassmorphism rounded-2xl p-8 border border-gray-700 hover:border-red-400 transition-all duration-500 group reveal-up">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-900 to-red-700 bg-opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <span
+                                    class="filter grayscale group-hover:grayscale-0 transition-all duration-500">💸</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+                        </div>
+
+                        <h3
+                            class="font-display text-2xl font-bold text-white mb-4 group-hover:text-red-300 transition-colors">
+                            Verlust #2</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                            <strong class="text-white">Keine Google-Rankings = unsichtbar</strong>
+                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            90% der Klicks gehen an die ersten 3 Google-Ergebnisse. Ohne SEO-Optimierung finden Kunden
+                            in Leipzig Ihre Konkurrenz statt Sie.
+                        </p>
+
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <span class="text-red-400 text-sm font-semibold">Verbranntes Geld: ~€9.600/Jahr +
+                                Opportunitätskosten</span>
+                        </div>
+                    </article>
+
+                    <!-- Problem 3 -->
+                    <article
+                        class="problem-card glassmorphism rounded-2xl p-8 border border-gray-700 hover:border-red-400 transition-all duration-500 group reveal-up">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-900 to-red-700 bg-opacity-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <span
+                                    class="filter grayscale group-hover:grayscale-0 transition-all duration-500">⏱️</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+                        </div>
+
+                        <h3
+                            class="font-display text-2xl font-bold text-white mb-4 group-hover:text-red-300 transition-colors">
+                            Verlust #3</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                            <strong class="text-white">Manuelles Marketing frisst Zeit</strong>
+                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            8+ Stunden pro Woche für repetitive Aufgaben. Ohne Marketing Automatisierung mit Zapier oder
+                            Make.com verschenken Sie wertvolle Zeit.
+                        </p>
+
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <span class="text-red-400 text-sm font-semibold">Verlorene Zeit: ~8 Stunden/Woche =
+                                €20.000/Jahr</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="max-w-4xl mx-auto reveal-up">
+                    <div class="relative py-12">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t-2 border-gray-700"></div>
+                        </div>
+                        <div class="relative flex justify-center">
+                            <div class="px-8 py-3 glassmorphism rounded-full border-2 border-gold">
+                                <span class="text-gold text-sm font-bold uppercase tracking-wider">⚡ Der
+                                    Visura-Unterschied</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="text-center glassmorphism rounded-3xl p-12 border-2 border-gold border-opacity-50 bg-gradient-to-br from-navy-light to-navy shadow-2xl">
+                        <h3 class="font-display text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                            Website Entwicklung Leipzig:<br>
+                            <span class="gradient-text">Professionell. Schnell. SEO-optimiert.</span>
+                        </h3>
+
+                        <p class="text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto">
+                            WordPress Websites mit unter 1s Ladezeit. SEO-Optimierung für Google Seite 1. Marketing
+                            Automatisierung.<br>
+                            <strong class="text-white">Sie konzentrieren sich auf Ihr Geschäft in Leipzig – wir auf Ihre
+                                digitale Sichtbarkeit.</strong>
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+                            <div class="flex items-center gap-2 text-white">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>WordPress Websites unter 1s Ladezeit</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-white">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>SEO Leipzig: Google Seite 1 Rankings</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-white">
+                                <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>Marketing Automatisierung mit Zapier</span>
+                            </div>
+                        </div>
+
+                        <a href="#kontakt"
+                            class="btn-primary text-navy px-10 py-4 rounded-xl font-bold text-lg inline-flex items-center space-x-2 group shadow-lg hover:shadow-xl transition-all">
+                            <span>Website Entwicklung anfragen</span>
+                            <span class="group-hover:translate-x-1 transition-transform">»</span>
+                        </a>
+
+                        <p class="text-gray-300 text-sm mt-4">Kostenlose Schwachstellen-Analyse • Keine Verträge • Nur 3
+                            Plätze diesen Monat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-32 lg:py-48 relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy via-navy-light to-navy opacity-50"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20 reveal-up">
+                    <div
+                        class="inline-flex items-center gap-2 mb-6 px-6 py-3 bg-gold bg-opacity-10 border border-gold rounded-full">
+                        <span class="text-gold text-sm font-bold uppercase tracking-wider">WEBSITE ENTWICKLUNG LEIPZIG:
+                            UNSER PROZESS</span>
+                    </div>
+
+                    <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">
+                        Von der Strategie zur<br>
+                        <span class="gradient-text">professionellen Website</span>
+                    </h2>
+
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        In 14 Tagen ist Ihre WordPress Website mit SEO-Optimierung live.<br>
+                        <strong class="text-white">Professionelle Website Entwicklung in Leipzig und Umgebung.</strong>
+                    </p>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="process-step-container reveal-up">
+                        <div class="process-step-content">
+                            <div class="process-phase-badge">TAG 1-2</div>
+                            <h3 class="process-step-title">
+                                Strategie-Workshop
+                            </h3>
+                            <p class="process-step-description">
+                                90-minütiges Video-Call. Wir analysieren Ihre Zielgruppe, Konkurrenz und definieren Ihre
+                                einzigartige Positionierung.
+                            </p>
+                            <ul class="process-checklist">
+                                <li><span class="check-icon">✓</span> Zielgruppen-Analyse</li>
+                                <li><span class="check-icon">✓</span> Konkurrenz-Audit</li>
+                                <li><span class="check-icon">✓</span> Content-Strategie</li>
+                                <li><span class="check-icon">✓</span> Keyword-Recherche</li>
+                            </ul>
+                            <svg class="process-progress-bar" viewBox="0 0 60 60">
+                                <circle class="process-progress-bg" cx="30" cy="30" r="25"></circle>
+                                <circle class="process-progress-fill" cx="30" cy="30" r="25"></circle>
+                            </svg>
+                        </div>
+                        <div class="process-number">1</div>
+                    </div>
+
+                    <div class="process-step-container reveal-up">
+                        <div class="process-step-content">
+                            <div class="process-phase-badge">TAG 3-8</div>
+                            <h3 class="process-step-title">
+                                Digitale Infrastruktur
+                            </h3>
+                            <p class="process-step-description">
+                                Wir bauen Ihre Website, optimieren Google My Business, richten Analytics ein. Sie sehen
+                                den Fortschritt täglich.
+                            </p>
+                            <ul class="process-checklist">
+                                <li><span class="check-icon">✓</span> Website-Entwicklung</li>
+                                <li><span class="check-icon">✓</span> Google My Business Setup</li>
+                                <li><span class="check-icon">✓</span> Analytics Integration</li>
+                                <li><span class="check-icon">✓</span> SEO Optimierung</li>
+                            </ul>
+                            <svg class="process-progress-bar" viewBox="0 0 60 60">
+                                <circle class="process-progress-bg" cx="30" cy="30" r="25"></circle>
+                                <circle class="process-progress-fill" cx="30" cy="30" r="25"></circle>
+                            </svg>
+                        </div>
+                        <div class="process-number">2</div>
+                    </div>
+
+                    <div class="process-step-container reveal-up">
+                        <div class="process-step-content">
+                            <div class="process-phase-badge">TAG 9-12</div>
+                            <h3 class="process-step-title">
+                                Content & Social Media
+                            </h3>
+                            <p class="process-step-description">
+                                Instagram-Setup, erste 12 Posts geplant, WhatsApp Business Integration. Ihr digitales
+                                Ökosystem ist komplett.
+                            </p>
+                            <ul class="process-checklist">
+                                <li><span class="check-icon">✓</span> Instagram Setup</li>
+                                <li><span class="check-icon">✓</span> 12 Posts vorbereitet</li>
+                                <li><span class="check-icon">✓</span> WhatsApp Business</li>
+                                <li><span class="check-icon">✓</span> Review-System aktiv</li>
+                            </ul>
+                            <svg class="process-progress-bar" viewBox="0 0 60 60">
+                                <circle class="process-progress-bg" cx="30" cy="30" r="25"></circle>
+                                <circle class="process-progress-fill" cx="30" cy="30" r="25"></circle>
+                            </svg>
+                        </div>
+                        <div class="process-number">3</div>
+                    </div>
+
+                    <div class="process-step-container reveal-up">
+                        <div class="process-step-content process-step-final">
+                            <div class="process-phase-badge">TAG 13-14</div>
+                            <h3 class="process-step-title gradient-text">
+                                Launch & Schulung
+                            </h3>
+                            <p class="process-step-description">
+                                Website live, Team-Schulung (60 Min), Dashboard-Zugang, Support-Hotline. <strong>Sie
+                                    sind ab jetzt online, messbar und professionell.</strong>
+                            </p>
+                            <ul class="process-checklist">
+                                <li><span class="check-icon">✓</span> Website Launch</li>
+                                <li><span class="check-icon">✓</span> Team-Schulung (60 Min)</li>
+                                <li><span class="check-icon">✓</span> Dashboard-Zugang</li>
+                                <li><span class="check-icon">✓</span> 24/7 Support-Hotline</li>
+                            </ul>
+                            <svg class="process-progress-bar" viewBox="0 0 60 60">
+                                <circle class="process-progress-bg" cx="30" cy="30" r="25"></circle>
+                                <circle class="process-progress-fill" cx="30" cy="30" r="25"></circle>
+                            </svg>
+                        </div>
+                        <div class="process-number process-number-final">4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq-preview" class="py-24 bg-gradient-to-b from-navy-light to-navy relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                        Häufig gestellte <span class="gradient-text">Fragen</span>
+                    </h2>
+                    <p class="text-xl text-gray-300">Die wichtigsten Antworten, bevor Sie buchen</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="faq-item glassmorphism rounded-xl reveal-up">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between text-white hover:text-gold transition-colors"
+                            aria-expanded="false">
+                            <span class="font-semibold text-lg pr-4">Was genau bekomme ich?</span>
+                            <span class="faq-icon text-gold text-2xl flex-shrink-0">+</span>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed">
+                                Premium-Website (5-7 Seiten), Google My Business Optimierung, Instagram-Setup mit
+                                Content-Strategie, WhatsApp Business Integration, Analytics-Dashboard, 2 Wochen
+                                Launch-Support, Schulung Ihres Teams.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-xl reveal-up">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between text-white hover:text-gold transition-colors"
+                            aria-expanded="false">
+                            <span class="font-semibold text-lg pr-4">Wie schnell sehe ich erste Ergebnisse?</span>
+                            <span class="faq-icon text-gold text-2xl flex-shrink-0">+</span>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed">
+                                Erste Anfragen typischerweise innerhalb von 2-4 Wochen nach Launch. Volle Wirkung
+                                (Google-Rankings, organischer Traffic) nach 2-3 Monaten. Wir liefern messbare
+                                Ergebnisse, keine leeren Versprechen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-xl reveal-up">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between text-white hover:text-gold transition-colors"
+                            aria-expanded="false">
+                            <span class="font-semibold text-lg pr-4">Benötige ich technische Kenntnisse?</span>
+                            <span class="faq-icon text-gold text-2xl flex-shrink-0">+</span>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed">
+                                Nein. Wir übernehmen die komplette technische Umsetzung und Wartung. Sie konzentrieren
+                                sich auf Ihr Geschäft, wir auf Ihr digitales Wachstum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-xl reveal-up">
+                        <button
+                            class="faq-question w-full text-left p-6 flex items-center justify-between text-white hover:text-gold transition-colors"
+                            aria-expanded="false">
+                            <span class="font-semibold text-lg pr-4">Was unterscheidet Sie von anderen Agenturen?</span>
+                            <span class="faq-icon text-gold text-2xl flex-shrink-0">+</span>
+                        </button>
+                        <div class="faq-answer px-6 pb-6">
+                            <p class="text-gray-300 leading-relaxed">
+                                Wir sind keine "Werbung-schalten-und-verschwinden" Agentur. Wir bauen komplette digitale
+                                Systeme, die langfristig funktionieren. Lokale Leipzig-Expertise, begrenzte
+                                Kundenanzahl, und bewiesene 347% Wachstumsergebnisse.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 reveal-up">
+                    <a href="faq.html"
+                        class="inline-flex items-center space-x-2 text-gold hover:text-gold-light transition-colors text-lg">
+                        <span>Alle FAQs ansehen</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kontakt" class="py-48 lg:py-64 bg-gradient-to-br from-navy via-navy-light to-navy"
+            aria-labelledby="cta-heading">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16 reveal-up">
+                        <h2 id="cta-heading" class="font-display text-4xl md:text-6xl font-bold text-white mb-6">
+                            Bereit für professionelle<br>
+                            <span class="gradient-text">Website Entwicklung Leipzig?</span>
+                        </h2>
+                        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                            Kostenloses Erstgespräch vereinbaren.<br>
+                            WordPress Website, SEO-Optimierung und Marketing Automatisierung aus einer Hand.
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4 mb-8">
+                            <div class="flex items-center space-x-2 text-gold">
+                                <span class="text-xl">•</span>
+                                <span>Ergebnisse in 30 Tagen oder Geld zurück</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-gold">
+                                <span class="text-xl">•</span>
+                                <span>Keine Verträge. Keine versteckten Kosten.</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-gold">
+                                <span class="text-xl">•</span>
+                                <span>100% Transparenz. 100% Kontrolle.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glassmorphism rounded-2xl p-8 mb-12 reveal-up">
+                        <form id="secureContactForm" class="contact-form space-y-6 max-w-xl mx-auto" novalidate
+                            aria-label="Kontaktformular">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Name <span class="text-red-400">*</span>
+                                </label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all"
+                                    placeholder="Ihr Name" aria-describedby="name-error">
+                                <span id="name-error" class="text-red-400 text-sm mt-1 hidden" role="alert"></span>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                                    E-Mail <span class="text-red-400">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all"
+                                    placeholder="ihre.email@beispiel.de" aria-describedby="email-error">
+                                <span id="email-error" class="text-red-400 text-sm mt-1 hidden" role="alert"></span>
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Telefon <span class="text-red-400">*</span>
+                                </label>
+                                <input type="tel" id="phone" name="phone" required minlength="6"
+                                    class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all"
+                                    placeholder="+49 123 456789" aria-describedby="phone-error">
+                                <span id="phone-error" class="text-red-400 text-sm mt-1 hidden" role="alert"></span>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+                                    Nachricht (optional)
+                                </label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="w-full px-6 py-4 bg-navy-light border-2 border-gray-600 rounded-xl text-white text-lg focus:outline-none focus:border-gold transition-all resize-none"
+                                    placeholder="Ihre Nachricht..."></textarea>
+                            </div>
+
+                            <div style="position: absolute; left: -9999px;">
+                                <label for="website">Website (do not fill)</label>
+                                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <button type="submit"
+                                class="btn-primary text-navy px-12 py-4 rounded-xl font-bold text-lg w-full hover:shadow-2xl transition-all">
+                                <span>Jetzt kostenlos anfragen</span>
+                            </button>
+
+                            <p class="text-sm text-gray-400 text-center">
+                                Mit dem Absenden stimmen Sie unserer
+                                <a href="Datenschutz.html" class="text-gold hover:underline">Datenschutzerklärung</a>
+                                zu.
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="text-center reveal-up">
+
+                        <div class="mt-8 text-center">
+                            <p class="text-gray-400 text-sm mb-4">Oder kontaktieren Sie uns per WhatsApp:</p>
+                            <a href="https://wa.me/4915756778247" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 group"
+                                aria-label="WhatsApp Nachricht senden">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 16 16" class="group-hover:rotate-12 transition-transform duration-300">
+                                    <path
+                                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                                </svg>
+                                <span class="text-lg">Schnellnachricht senden</span>
+                                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="mt-8">
+                            <button id="revealContactBtn"
+                                class="text-gold hover:text-gold-light transition-colors text-sm flex items-center mx-auto gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                    </path>
+                                </svg>
+                                <span>Klicken um E-Mail & Telefon anzuzeigen</span>
+                            </button>
+
+                            <div id="hiddenContact"
+                                class="hidden mt-4 flex flex-col sm:flex-row justify-center items-center gap-6">
+                                <a href="#" data-contact="email"
+                                    class="hidden text-gold hover:text-gold-light transition-colors flex items-center space-x-2"
+                                    aria-label="E-Mail senden">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"
+                                        role="presentation">
+                                        <path
+                                            d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                        </path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg>
+                                    <span>Loading...</span>
+                                </a>
+                                <a href="#" data-contact="phone"
+                                    class="hidden text-gold hover:text-gold-light transition-colors flex items-center space-x-2"
+                                    aria-label="Anrufen">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"
+                                        role="presentation">
+                                        <path
+                                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                        </path>
+                                    </svg>
+                                    <span>Loading...</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 glassmorphism">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-20 h-20 bg-white rounded-lg flex items-center justify-center p-1">
+                            <img src="assets/images/logos/VM transparent.svg" alt="VM Logo"
+                                class="w-full h-full object-contain" loading="lazy" decoding="async">
+                        </div>
+                        <img src="assets/images/logos/logoname.svg" alt="Visura Media" class="h-8 w-auto" loading="lazy"
+                            decoding="async">
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Exklusive digitale Dominanz für Marken, die führen. Wir arbeiten nur mit ausgesuchten
+                        Unternehmen.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-gold-light transition-colors"
+                            aria-label="Besuchen Sie uns auf Twitter">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                                role="presentation">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gold hover:text-gold-light transition-colors"
+                            aria-label="Verbinden Sie sich mit uns auf LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                                role="presentation">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gold hover:text-gold-light transition-colors"
+                            aria-label="Folgen Sie uns auf Pinterest">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+                                role="presentation">
+                                <path
+                                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Leistungen</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#leistungen" class="text-gray-300 hover:text-gold transition-colors">Digitale
+                                Dominanz</a></li>
+                        <li><a href="#leistungen"
+                                class="text-gray-300 hover:text-gold transition-colors">Marken-Transformation</a></li>
+                        <li><a href="#leistungen"
+                                class="text-gray-300 hover:text-gold transition-colors">AI-Integration</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Unternehmen</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="Uber Uns.html" class="text-gray-300 hover:text-gold transition-colors">Über uns</a>
+                        </li>
+                        <li><a href="faq.html" class="text-gray-300 hover:text-gold transition-colors">FAQ</a></li>
+                        <li><a href="#kontakt" class="text-gray-300 hover:text-gold transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Rechtliches</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="Impressum.html"
+                                class="text-gray-300 hover:text-gold transition-colors">Impressum</a></li>
+                        <li><a href="Datenschutz.html"
+                                class="text-gray-300 hover:text-gold transition-colors">Datenschutz</a></li>
+                        <li><a href="AGB.html" class="text-gray-300 hover:text-gold transition-colors">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                <p class="text-gray-300 text-sm">
+                    © 2025 Visura Media. Alle Rechte vorbehalten.<br>
+                    <span class="text-gold text-xs">Website Entwicklung Leipzig | SEO-Optimierung | Marketing
+                        Automatisierung | Limitierte Kapazität</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+
+    <!-- Consolidated JavaScript (Minified) -->
+    <script src="js/main-merged.min.js" defer></script>
+</body>
+
+</html>

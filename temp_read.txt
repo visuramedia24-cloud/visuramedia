@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFSG-Konform in 48h | Bußgeld bis €100.000 vermeiden</title>
+    <meta name="description"
+        content="BFSG-Pflicht ab 28. Juni 2025. Kostenlose Prüfung. Professional Fix in 48-72h. Vermeiden Sie Bußgelder bis €100.000. Leipzig.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="BFSG-Konform in 48h | Bußgeld bis €100.000 vermeiden">
+    <meta property="og:description" content="Kostenlose Prüfung. Professional Fix in 48-72h. WCAG 2.1 AA konform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://visuramedia.de/barrierefreiheit-v2.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "BFSG Barrierefreiheitsprüfung",
+      "description": "BFSG-Konformitätsprüfung und -behebung für Online-Shops. Kostenlose Prüfung, Fix in 48-72 Stunden.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Visura Media",
+        "url": "https://visuramedia.de",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Leipzig",
+          "addressRegion": "Sachsen",
+          "addressCountry": "DE"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "BFSG Behebung",
+        "price": "750",
+        "priceCurrency": "EUR",
+        "description": "Einmalige Behebung aller BFSG-Verstöße"
+      }
+    }
+    </script>
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0A0E14;
+            color: #E8EAED;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', sans-serif;
+
+            --color-bg-primary: #0A0E14;
+            --color-bg-secondary: #151921;
+            --color-bg-tertiary: #1E242E;
+            --color-bg-card: #1A202C;
+
+            --color-text-primary: #E8EAED;
+            --color-text-secondary: #B8BCC4;
+            --color-text-muted: #7A8291;
+
+            --color-gold: #C9A772;
+            --color-gold-light: #E8D4B8;
+            --color-blue: #3B82F6;
+            --color-blue-light: #60A5FA;
+            --color-red: #EF4444;
+            --color-green: #10B981;
+
+            --space-1: 8px;
+            --space-2: 16px;
+            --space-3: 24px;
+            --space-4: 32px;
+            --space-5: 40px;
+            --space-6: 48px;
+            --space-8: 64px;
+            --space-10: 80px;
+            --space-12: 96px;
+            --space-16: 128px;
+            --space-20: 160px;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 30px rgba(201, 167, 114, 0.3);
+
+            --container-max: 1440px;
+            --container-padding: var(--space-3);
+        }
+
+        @media (min-width: 768px) {
+            :root {
+                --container-padding: var(--space-6);
+            }
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+        }
+
+        .section {
+            padding: var(--space-10) 0;
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: var(--space-20) 0;
+            }
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(40px, 8vw, 56px);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: clamp(32px, 6vw, 40px);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) {
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== COMPONENTS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            border: none;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+            color: #0A0E14;
+            box-shadow: 0 4px 12px rgba(201, 167, 114, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 167, 114, 0.4);
+        }
+
+        .btn-lg {
+            padding: var(--space-3) var(--space-6);
+            font-size: 18px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-gold);
+            border: 2px solid var(--color-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 167, 114, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease-out;
+        }
+
+        @media (min-width: 1024px) {
+            .card {
+                padding: var(--space-6);
+            }
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-highlight {
+            border: 2px solid var(--color-gold);
+            background: linear-gradient(135deg, rgba(201, 167, 114, 0.08) 0%, rgba(201, 167, 114, 0.02) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(201, 167, 114, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-1) var(--space-2);
+            background: rgba(201, 167, 114, 0.1);
+            border: 1px solid var(--color-gold);
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--color-red);
+            color: var(--color-red);
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--space-3);
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-10) 0;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at top, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
+                var(--color-bg-primary);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.03) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            margin-bottom: var(--space-3);
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-5);
+            animation: slideInRight 0.8s ease-out 0.2s backwards;
+        }
+
+        .countdown {
+            display: inline-flex;
+            gap: var(--space-3);
+            margin-bottom: var(--space-5);
+            animation: slideInLeft 0.8s ease-out 0.4s backwards;
+        }
+
+        .countdown-item {
+            background: rgba(201, 167, 114, 0.1);
+            border: 1px solid var(--color-gold);
+            border-radius: var(--radius-md);
+            padding: var(--space-2) var(--space-3);
+            min-width: 80px;
+        }
+
+        .countdown-value {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-gold);
+            font-family: var(--font-display);
+        }
+
+        .countdown-label {
+            display: block;
+            font-size: 14px;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--space-4);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-value {
+            font-size: 48px;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: var(--color-gold);
+            line-height: 1;
+            margin-bottom: var(--space-2);
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+        }
+
+        /* ===== COMPLIANCE SECTION ===== */
+        .compliance-grid {
+            display: grid;
+            gap: var(--space-3);
+        }
+
+        @media (min-width: 768px) {
+            .compliance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .compliance-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .compliance-card {
+            position: relative;
+            padding: var(--space-4);
+            background: var(--color-bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease-out;
+        }
+
+        .compliance-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-gold);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .compliance-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--space-3);
+        }
+
+        .compliance-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+            color: var(--color-text-primary);
+        }
+
+        .compliance-desc {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-6) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-gold), var(--color-gold-light));
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(201, 167, 114, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: var(--space-8);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 768px) {
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-end;
+                padding-left: 60px;
+            }
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--color-bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            transition: all 0.4s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-content {
+                width: 100%;
+            }
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-gold);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: #0A0E14;
+            box-shadow: 0 10px 40px rgba(201, 167, 114, 0.4);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-number {
+                left: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        .timeline-item:hover .timeline-number {
+            transform: translate(-50%, -50%) scale(1.15) rotate(360deg);
+        }
+
+        .timeline-phase {
+            display: inline-block;
+            padding: var(--space-1) var(--space-2);
+            background: rgba(201, 167, 114, 0.2);
+            border: 1px solid var(--color-gold);
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: var(--space-2);
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            color: var(--color-text-primary);
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-grid {
+            display: grid;
+            gap: var(--space-4);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .pricing-card {
+            background: var(--color-bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            transition: all 0.3s ease-out;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-header {
+            text-align: center;
+            padding-bottom: var(--space-4);
+            margin-bottom: var(--space-4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            color: var(--color-text-primary);
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: var(--color-gold);
+            margin-bottom: var(--space-1);
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--space-4);
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+            padding: var(--space-2) 0;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .pricing-feature::before {
+            content: '✓';
+            color: var(--color-gold);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-bg-card);
+            font-family: var(--font-display);
+            color: var(--color-gold);
+            margin-bottom: var(--space-1);
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--space-4);
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+            padding: var(--space-2) 0;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .pricing-feature::before {
+            content: '✓';
+            color: var(--color-gold);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--color-bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-4);
+            background: none;
+            border: none;
+            color: var(--color-text-primary);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+            padding: 0 var(--space-4);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 var(--space-4) var(--space-4);
+        }
+
+        .faq-answer p {
+            color: var(--color-text-secondary);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(180deg, var(--color-bg-primary) 0%, #05070A 100%);
+            padding: var(--space-8) 0 var(--space-4);
+            margin-top: var(--space-20);
+        }
+
+        .footer-brand {
+            text-align: center;
+            margin-bottom: var(--space-5);
+        }
+
+        .footer-brand-link {
+            color: var(--color-gold);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: var(--font-display);
+            transition: color 0.2s;
+        }
+
+        .footer-brand-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-5);
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        /* ===== UTILITIES ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: var(--space-2);
+        }
+
+        .mb-3 {
+            margin-bottom: var(--space-3);
+        }
+
+        .mb-4 {
+            margin-bottom: var(--space-4);
+        }
+
+        .mb-5 {
+            margin-bottom: var(--space-5);
+        }
+
+        .mb-6 {
+            margin-bottom: var(--space-6);
+        }
+
+        .mt-4 {
+            margin-top: var(--space-4);
+        }
+
+        .mt-6 {
+            margin-top: var(--space-6);
+        }
+
+        .mt-8 {
+            margin-top: var(--space-8);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .luxury-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: calc(100% - 48px);
+            max-width: 1200px;
+        }
+
+        .luxury-nav.scrolled {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%) scale(0.95);
+            opacity: 0.9;
+        }
+
+        .luxury-nav.hidden {
+            transform: translateX(-50%) translateY(-150%);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        }
+
+        .luxury-nav-container {
+            background: rgba(10, 16, 24, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 16px 64px;
+        }
+
+        .luxury-nav-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+        }
+
+        .luxury-nav-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom right, rgba(201, 167, 114, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 24px;
+        }
+
+        .luxury-nav-container:hover .luxury-nav-gradient {
+            opacity: 1;
+        }
+
+        .luxury-nav-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .luxury-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .luxury-nav-logo img {
+            height: 28px;
+            width: auto;
+        }
+
+        .luxury-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+        }
+
+        @media (max-width: 768px) {
+            .luxury-nav-links {
+                display: none;
+            }
+        }
+
+        .luxury-nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 12px 8px;
+            text-decoration: none;
+        }
+
+        .luxury-nav-link:hover {
+            color: var(--color-gold);
+        }
+
+        .luxury-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-gold);
+            transition: width 0.3s ease;
+        }
+
+        .luxury-nav-link:hover::after {
+            width: 100%;
+        }
+
+        .luxury-nav-mobile-btn {
+            display: none;
+            color: var(--color-gold);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            min-width: 48px;
+            min-height: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .luxury-nav-mobile-btn {
+                display: block;
+            }
+
+            .luxury-nav-container {
+                padding: 16px 24px;
+            }
+        }
+
+        .luxury-nav-mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 320px;
+            background: rgba(10, 16, 24, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 50;
+        }
+
+        .luxury-nav-mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .luxury-nav-mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .luxury-nav-mobile-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+        }
+
+        .luxury-nav-mobile-close {
+            color: var(--color-gold);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            min-width: 48px;
+            min-height: 48px;
+        }
+
+        .luxury-nav-mobile-links {
+            padding: 24px;
+        }
+
+        .luxury-nav-mobile-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            transition: color 0.3s ease;
+            padding: 16px 0;
+            text-decoration: none;
+        }
+
+        .luxury-nav-mobile-link:hover {
+            color: var(--color-gold);
+        }
+
+        .luxury-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            display: none;
+        }
+
+        .luxury-nav-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="luxuryNav" class="luxury-nav" role="navigation" aria-label="Hauptnavigation">
+        <div class="luxury-nav-container">
+            <div class="luxury-nav-gradient"></div>
+            <div class="luxury-nav-content">
+                <div class="luxury-nav-logo">
+                    <a href="index.html" aria-label="Zurück zur Startseite">
+                        <img src="assets/images/logos/logoname.svg" alt="Visura Media" width="120" height="28"
+                            loading="eager">
+                    </a>
+                </div>
+
+                <div class="luxury-nav-links">
+                    <a href="index.html#process" class="luxury-nav-link">Prozess</a>
+                    <a href="index.html#portfolio" class="luxury-nav-link">Portfolio</a>
+                    <div style="position: relative;">
+                        <a href="services.html" class="luxury-nav-link">Services</a>
+                    </div>
+                    <a href="faq.html" class="luxury-nav-link">FAQ</a>
+                    <a href="index.html#kontakt" class="luxury-nav-link btn-primary"
+                        style="color: #0A0E14; padding: 12px 24px; border-radius: 12px; font-weight: 600;">Erstgespräch</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="luxury-nav-mobile-btn" aria-label="Menü öffnen">
+                    <svg class="" style="width: 20px; height: 20px;" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="luxury-nav-mobile-menu" role="navigation" aria-label="Mobile Navigation">
+        <div class="luxury-nav-mobile-header">
+            <span class="luxury-nav-mobile-title">Menü</span>
+            <button id="closeMobileMenu" class="luxury-nav-mobile-close" aria-label="Menü schließen">
+                <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="luxury-nav-mobile-links">
+            <a href="index.html#process" class="luxury-nav-mobile-link">Prozess</a>
+            <a href="index.html#portfolio" class="luxury-nav-mobile-link">Portfolio</a>
+            <a href="services.html" class="luxury-nav-mobile-link">Services</a>
+            <a href="faq.html" class="luxury-nav-mobile-link">FAQ</a>
+            <a href="index.html#kontakt" class="luxury-nav-mobile-link btn-primary"
+                style="color: #0A0E14; padding: 16px 24px; border-radius: 12px; font-weight: 600; text-align: center; margin-top: 16px;">Erstgespräch</a>
+        </div>
+    </div>
+
+    <div id="mobileMenuOverlay" class="luxury-nav-overlay"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="badge mb-3">BFSG-Konformität</div>
+            <h1>Barrierefreiheit für <span class="gradient-text">Ihre Website</span></h1>
+            <p class="hero-subtitle">Vermeiden Sie Bußgelder und erschließen Sie neue Kundengruppen mit unserer
+                48h-Lösung.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#kontakt" class="btn btn-primary btn-lg">Kostenlose Prüfung</a>
+                <a href="#prozess" class="btn btn-secondary btn-lg">Wie es funktioniert</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Rechtssicher</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">48h</div>
+                    <div class="stat-label">Umsetzung</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">€750</div>
+                    <div class="stat-label">Festpreis</div>
+                </div>
+            </div>
+            <div class="countdown" style="display: flex; justify-content: center; margin-top: var(--space-6);">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Tage</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Std</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLIANCE SECTION -->
+    <section class="section" id="compliance">
+        <div class="container">
+            <div class="text-center mb-6">
+                <div class="badge mb-3">Standards</div>
+                <h2 class="mb-4">Wir garantieren <span class="gradient-text">Konformität</span></h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--color-text-secondary); font-size: 18px;">
+                    Vollständige Konformität mit allen WCAG 2.1 Level AA Kriterien </p>
+            </div>
+            <div class="compliance-grid mt-8">
+                <div class="compliance-card fade-in">
+                    <div class="compliance-icon">🎯</div>
+                    <h4 class="compliance-title">Wahrnehmbarkeit</h4>
+                    <p class="compliance-desc">Alt-Texte für Bilder,
+                        Farbkontraste,
+                        Untertitel für Videos,
+                        klare Textstruktur</p>
+                </div>
+                <div class="compliance-card fade-in">
+                    <div class="compliance-icon">⌨️</div>
+                    <h4 class="compliance-title">Bedienbarkeit</h4>
+                    <p class="compliance-desc">Vollständige Tastaturnavigation,
+                        Focus-States,
+                        ausreichend große Klickflächen</p>
+                </div>
+                <div class="compliance-card fade-in">
+                    <div class="compliance-icon">📖</div>
+                    <h4 class="compliance-title">Verständlichkeit</h4>
+                    <p class="compliance-desc">Klare Sprache,
+                        konsistente Navigation,
+                        Fehlervermeidung,
+                        aussagekräftige Labels</p>
+                </div>
+                <div class="compliance-card fade-in">
+                    <div class="compliance-icon">🔧</div>
+                    <h4 class="compliance-title">Robustheit</h4>
+                    <p class="compliance-desc">Semantisches HTML,
+                        ARIA-Labels,
+                        Screen-Reader-Kompatibilität </p>
+                </div>
+                <div class="compliance-card fade-in">
+                    <div class="compliance-icon">📱</div>
+                    <h4 class="compliance-title">Responsive Design</h4>
+                    <p class="compliance-desc">Optimierung für alle Endgeräte,
+                        Zoom-Funktionalität,
+                        Touch-Bedienung</p>
+                </div>
+                <div class="compliance-card fade-in">
+                    <div class="compliance-icon">🎨</div>
+                    <h4 class="compliance-title">Farbkontraste</h4>
+                    <p class="compliance-desc">Mindestens 4.5: 1 für Text, 3:1 für UI-Elemente, keine Information
+                        nur
+                        durch Farbe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="section" id="prozess" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="text-center mb-6">
+                <div class="badge mb-3">Der Prozess</div>
+                <h2 class="mb-4">In <span class="gradient-text">4 einfachen Schritten</span> zur Konformität
+                </h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--color-text-secondary); font-size: 18px;">
+                    Vom ersten Audit bis zur vollständigen BFSG-Konformität </p>
+            </div>
+            <div class="timeline mt-8">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content"> <span class="timeline-phase">Tag 1</span>
+                        <h4 class="timeline-title">Kostenlose Website-Prüfung</h4>
+                        <p class="timeline-desc"> Wir analysieren Ihre Website auf alle WCAG 2.1 AA Kriterien
+                            und
+                            erstellen einen detaillierten Audit-Report mit allen Verstößen. </p>
+                    </div>
+                    <div class="timeline-number">1</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content"> <span class="timeline-phase">Tag 1-2</span>
+                        <h4 class="timeline-title">Angebot & Freigabe</h4>
+                        <p class="timeline-desc"> Sie erhalten ein Festpreis-Angebot (€750 einmalig) mit genauer
+                            Auflistung aller notwendigen Anpassungen. Nach Ihrer Freigabe starten wir sofort.
+                        </p>
+                    </div>
+                    <div class="timeline-number">2</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content"> <span class="timeline-phase">Tag 2-3</span>
+                        <h4 class="timeline-title">Technische Umsetzung</h4>
+                        <p class="timeline-desc"> Unsere Entwickler beheben alle identifizierten Verstöße:
+                            Alt-Texte, Kontraste,
+                            Tastaturnavigation, ARIA-Labels, semantisches HTML – alles nach WCAG 2.1 AA
+                            Standard.
+                        </p>
+                    </div>
+                    <div class="timeline-number">3</div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content"> <span class="timeline-phase">Tag 3-4</span>
+                        <h4 class="timeline-title">Finale Prüfung & Zertifikat</h4>
+                        <p class="timeline-desc"> Abschließende Prüfung mit Screen-Readern und
+                            Accessibility-Tools.
+                            Sie erhalten ein BFSG-Konformitätszertifikat für Ihre Website. </p>
+                    </div>
+                    <div class="timeline-number">4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="text-center mb-6">
+                <div class="badge mb-3">Transparente Preise</div>
+                <h2 class="mb-4">Investieren Sie in <span class="gradient-text">Rechtssicherheit</span></h2>
+                <p style="max-width: 800px; margin: 0 auto; color: var(--color-text-secondary); font-size: 18px;">
+                    Einmalpreis ohne versteckte Kosten oder Abo-Modelle </p>
+            </div>
+            <div class="pricing-grid mt-8">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Kostenlose Prüfung</h3>
+                        <div class="pricing-price">€0</div>
+                        <div class="pricing-period">Unverbindlich</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">Vollständiger WCAG 2.1 AA Audit</li>
+                        <li class="pricing-feature">Detaillierter PDF-Report</li>
+                        <li class="pricing-feature">Priorisierte Mängelliste</li>
+                        <li class="pricing-feature">Keine Verpflichtung zur Umsetzung</li>
+                        <li class="pricing-feature">Ergebnis in 24h</li>
+                    </ul> <a href="#kontakt" class="btn btn-secondary" style="width: 100%;">Jetzt prüfen
+                        lassen</a>
+                </div>
+                <div class="pricing-card card-highlight fade-in">
+                    <div
+                        style="position: absolute; top: -12px; right: 24px; background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold)); padding: 6px 16px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #0A0E14; text-transform: uppercase;">
+                        Empfohlen</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">BFSG-Konform Paket</h3>
+                        <div class="pricing-price">€750</div>
+                        <div class="pricing-period">Einmalig</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">Behebung aller WCAG 2.1 AA Verstöße</li>
+                        <li class="pricing-feature">Umsetzung in 48-72h</li>
+                        <li class="pricing-feature">BFSG-Konformitätszertifikat</li>
+                        <li class="pricing-feature">Screen-Reader-Tests</li>
+                        <li class="pricing-feature">Dokumentation aller Änderungen</li>
+                        <li class="pricing-feature">30 Tage Support</li>
+                        <li class="pricing-feature">Geld-zurück-Garantie</li>
+                    </ul> <a href="#kontakt" class="btn btn-primary" style="width: 100%;">Jetzt
+                        beauftragen</a>
+                </div>
+            </div>
+            <div class="text-center mt-6 fade-in">
+                <p style="color: var(--color-text-muted); font-size: 14px;">  <strong>Hinweis:</strong>
+                    Ein
+                    Bu�geld kann bis zu �100.000 betragen  unsere L�sung kostet nur �750 einmalig. </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="text-center mb-6">
+                <div class="badge mb-3">H�ufige Fragen</div>
+                <h2 class="mb-4">Alles, was Sie <span class="gradient-text">wissen m�ssen</span></h2>
+            </div>
+            <div class="faq-list mt-8">
+                <div class="faq-item fade-in"> <button class="faq-question"> Betrifft mich das BFSG
+                        �berhaupt? <span class="faq-icon"></span> </button>
+                    <div class="faq-answer">
+                        <p>Ja, wenn Sie Produkte oder Dienstleistungen online verkaufen oder anbieten.
+                            Das
+                            BFSG gilt f�r alle Online-Shops,
+                            Webshops,
+                            Buchungsplattformen und digitale Dienstleister in Deutschland. </p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in"> <button class="faq-question"> Was passiert,
+                        wenn ich nicht konform bin? <span class="faq-icon"></span> </button>
+                    <div class="faq-answer">
+                        <p>Ab dem 28. Juni 2025 drohen Bu�gelder bis zu �100.000,
+                            Abmahnungen von Wettbewerbern und Klagen von Betroffenen. Zudem verlieren
+                            Sie
+                            potenzielle Kunden und Rankings bei Google.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in"> <button class="faq-question"> Wie lange dauert die
+                        Umsetzung? <span class="faq-icon"></span> </button>
+                    <div class="faq-answer">
+                        <p>Nach Ihrer Freigabe setzen wir alle notwendigen Anpassungen in 48-72 Stunden
+                            um.
+                            Den kostenlosen Audit erhalten Sie bereits nach 24 Stunden.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in"> <button class="faq-question"> Was ist im �750 Paket
+                        enthalten? <span class="faq-icon"></span> </button>
+                    <div class="faq-answer">
+                        <p>Vollst�ndige Behebung aller WCAG 2.1 AA Verst��e,
+                            technische Umsetzung,
+                            Screen-Reader-Tests,
+                            BFSG-Konformit�tszertifikat,
+                            Dokumentation und 30 Tage Support. Einmalpreis ohne Abo.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in"> <button class="faq-question"> Kann ich die Pr�fung
+                        wirklich kostenlos bekommen? <span class="faq-icon"></span> </button>
+                    <div class="faq-answer">
+                        <p>Ja,
+                            absolut kostenlos und unverbindlich. Sie erhalten einen detaillierten
+                            Audit-Report mit allen Verst��en und k�nnen dann frei entscheiden,
+                            ob Sie die Umsetzung beauftragen m�chten. </p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in"> <button class="faq-question"> Was ist WCAG 2.1 AA? <span
+                            class="faq-icon"></span> </button>
+                    <div class="faq-answer">
+                        <p>Die Web Content Accessibility Guidelines (WCAG) 2.1 Level AA sind der
+                            internationale Standard f�r digitale Barrierefreiheit. Das BFSG verlangt die
+                            Einhaltung dieses Standards f�r alle Online-Angebote.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section" id="kontakt">
+        <div class="container">
+            <div class="card-highlight fade-in"
+                style="max-width: 900px; margin: 0 auto; padding: 64px 32px; text-align: center;">
+                <div class="badge mb-4">Handeln Sie jetzt</div>
+                <h2 class="mb-4">Sichern Sie sich <span class="gradient-text">Rechtssicherheit</span></h2>
+                <p class="mb-5"
+                    style="font-size: 18px; color: var(--color-text-secondary); max-width: 700px; margin: 0 auto 32px;">
+                    Kostenlose Pr�fung anfordern und in 48-72h BFSG-konform werden. Vermeiden Sie Bu�gelder
+                    und erschlie�en Sie neue Kundengruppen. </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
+                    <a href="mailto:info@visuramedia.de?subject=BFSG Pr�fung Anfrage"
+                        class="btn btn-primary btn-lg">Kostenlose Pr�fung starten <span
+                            style="font-size: 20px;"></span></a><a href="tel:+4915756778247"
+                        class="btn btn-secondary btn-lg"> Anrufen: +49 1575 6778247 </a>
+                </div>
+                <div
+                    style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--color-text-muted);">
+                    <div> Kostenlose Erstpr�fung</div>
+                    <div> Festpreis �750</div>
+                    <div> Umsetzung in 48-72h</div>
+                    <div> WCAG 2.1 AA garantiert</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand"><a href="index.html" class="footer-brand-link">Visura Media</a>
+                <div style="font-size: 12px; color: var(--color-text-muted); margin-top: 8px;">Standort:
+                    Leipzig | Deutschlandweit remote</div>
+            </div>
+            <div class="footer-links"><a href="index.html" class="footer-link">Home</a><a href="index.html#services"
+                    class="footer-link">Services</a><a href="index.html#portfolio" class="footer-link">Portfolio</a><a
+                    href="faq.html" class="footer-link">FAQ</a><a href="impressum.html"
+                    class="footer-link">Impressum</a><a href="datenschutz.html" class="footer-link">Datenschutz</a>
+            </div>
+            <div class="footer-copyright"> 2025 Visura Media. Alle Rechte vorbehalten. </div>
+        </div>
+    </footer>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const deadline = new Date('2025-06-28T00:00:00');
+            const now = new Date();
+            const diff = deadline - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                if (href === '#' || href === '#kontakt' || href === '#prozess' || href === '#wcag' || href === '#pricing') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Mobile Navigation Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeMobileMenu && mobileMenu) {
+            closeMobileMenu.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close menu when clicking a link
+        const mobileLinks = document.querySelectorAll('.luxury-nav-mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+
+</html>

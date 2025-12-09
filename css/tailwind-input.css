@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utility classes that extend Tailwind */
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent;
+  }
+  
+  .glassmorphism {
+    @apply bg-navy/85 backdrop-blur-xl border border-white/10;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-gold to-gold-light text-navy font-bold rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold-lg;
+  }
+}
+
+/* Hero section CSS animations (replaces Anime.js for above-the-fold) */
+@layer components {
+  #hero .container > * {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+  }
+  
+  #hero h1 { animation-delay: 0.1s; }
+  #hero p { animation-delay: 0.2s; }
+  #hero .btn-primary { animation-delay: 0.3s; }
+  #hero .flex.flex-wrap { animation-delay: 0.4s; }
+  #hero .glassmorphism { animation-delay: 0.5s; }
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NNBXGVS61N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NNBXGVS61N');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Über Visura Media - Ihre Premium Digitalagentur für exklusive Webdesign, Social Media und AI-Tools.">
+    <title>Über Uns - Bald verfügbar | Visura Media</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logos/VM%20transparent.svg">
+
+    <!-- Preload critical fonts FIRST - eliminates 608ms chain -->
+    <link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/playfair-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Fonts -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <style>
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(201, 167, 114, 0.7);
+            }
+            50% { 
+                transform: scale(1.2); 
+                box-shadow: 0 0 0 10px rgba(201, 167, 114, 0);
+            }
+        }
+
+        .progress-bar-animated {
+            animation: progress-shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes progress-shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="luxury-nav">
+        <div class="luxury-nav-container">
+            <div class="luxury-nav-gradient"></div>
+            <div class="luxury-nav-content">
+                <a href="index.html" class="luxury-nav-logo">
+                    <div class="luxury-nav-logo-circle">
+                        <img src="assets/images/logos/visura-logo.svg" alt="Visura Media Logo" style="width: 32px; height: 32px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none; font-size: 24px; font-weight: 900; color: #0A1018;">V</span>
+                    </div>
+                    <span class="luxury-nav-logo-text">Visura Media</span>
+                </a>
+                
+                <div class="luxury-nav-links">
+                    <a href="index.html" class="luxury-nav-link">Home</a>
+                    <a href="services.html" class="luxury-nav-link">Services</a>
+                    <a href="Portfolio.html" class="luxury-nav-link">Portfolio</a>
+                    <a href="About Us.html" class="luxury-nav-link active">Über Uns</a>
+                    <a href="index.html#kontakt" class="luxury-nav-link">Kontakt</a>
+                </div>
+                
+                <button class="luxury-nav-mobile-btn" data-action="toggle-menu" aria-label="Menü öffnen">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="luxury-nav-mobile-menu" id="mobileMenu">
+        <div class="luxury-nav-mobile-header">
+            <span class="luxury-nav-mobile-title">Menü</span>
+            <button class="luxury-nav-mobile-close" data-action="toggle-menu" aria-label="Menü schließen">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="luxury-nav-mobile-links">
+            <a href="index.html" class="luxury-nav-mobile-link">Home</a>
+            <a href="services.html" class="luxury-nav-mobile-link">Services</a>
+            <a href="Portfolio.html" class="luxury-nav-mobile-link">Portfolio</a>
+            <a href="About Us.html" class="luxury-nav-mobile-link">Über Uns</a>
+            <a href="index.html#kontakt" class="luxury-nav-mobile-link">Kontakt</a>
+        </div>
+    </div>
+    <div class="luxury-nav-overlay" id="mobileMenuOverlay" data-action="toggle-menu"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Coming Soon Section -->
+        <section class="min-h-screen flex items-center justify-center py-32 px-6" style="background: linear-gradient(135deg, #0A1018 0%, #1a2332 50%, #0A1018 100%);">
+            <div class="container mx-auto text-center max-w-4xl">
+                
+                <!-- Animated Icon -->
+                <div class="mb-8 inline-block" style="animation: bounce 2s infinite;">
+                    <div class="text-6xl md:text-8xl" style="filter: drop-shadow(0 0 20px rgba(201, 167, 114, 0.5));">
+                        🚀
+                    </div>
+                </div>
+                
+                <!-- Main Heading -->
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">
+                    Bald verfügbar
+                </h1>
+                
+                <!-- Subheading -->
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                    Wir arbeiten an etwas Großartigem. Diese Seite ist in Kürze für Sie verfügbar.
+                </p>
+                
+                <!-- Glassmorphism Card -->
+                <div class="glassmorphism rounded-2xl p-8 md:p-12 max-w-2xl mx-auto mb-12" style="background: rgba(10, 16, 24, 0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">
+                    
+                    <!-- Message -->
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        In der Zwischenzeit können Sie uns gerne kontaktieren oder unsere Premium-Services entdecken.
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="index.html#kontakt" class="btn-primary text-navy px-8 py-4 rounded-lg font-semibold text-base transition-all hover:scale-105" style="background: linear-gradient(135deg, #C9A772, #E8D4B8); color: #0A1018; box-shadow: 0 4px 12px rgba(201, 167, 114, 0.3); display: inline-flex; align-items: center; justify-content: center; min-height: 48px;">
+                            Kontaktieren Sie uns
+                        </a>
+                        <a href="services.html" class="px-8 py-4 rounded-lg border-2 text-gold hover:bg-gold hover:text-navy font-semibold transition-all hover:scale-105 inline-flex items-center justify-center" style="border-color: #C9A772; color: #C9A772; min-height: 48px;">
+                            Services entdecken
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="max-w-md mx-auto">
+                    <div class="flex justify-between text-sm text-gray-400 mb-3">
+                        <span class="font-medium">Fortschritt</span>
+                        <span class="font-bold" style="color: #C9A772;">70%</span>
+                    </div>
+                    <div class="w-full rounded-full h-3 overflow-hidden" style="background: rgba(26, 35, 50, 0.6);">
+                        <div class="h-3 rounded-full progress-bar-animated" style="width: 70%; background: linear-gradient(90deg, #C9A772, #E8D4B8); box-shadow: 0 0 10px rgba(201, 167, 114, 0.5); animation: pulse 2s ease-in-out infinite;">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pulsing Dot Indicator -->
+                <div class="mt-12 flex items-center justify-center gap-3">
+                    <div class="w-3 h-3 rounded-full" style="background: #C9A772; animation: pulse-dot 2s ease-in-out infinite;">
+                    </div>
+                    <span class="text-sm text-gray-400 font-medium">
+                        Wir arbeiten daran...
+                    </span>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 glassmorphism">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1">
+                    <h3 class="font-display text-2xl font-bold text-white mb-4">Visura Media</h3>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Ihre Premium-Agentur für digitale Exzellenz.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-300 hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-gold transition-colors">Services</a></li>
+                        <li><a href="Portfolio.html" class="text-gray-300 hover:text-gold transition-colors">Portfolio</a></li>
+                        <li><a href="About Us.html" class="text-gray-300 hover:text-gold transition-colors">Über Uns</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Kontakt</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-gray-300">info@visuramedia.de</li>
+                        <li class="text-gray-300">+49 1575 6778247</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Rechtliches</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="Impressum.html" class="text-gray-300 hover:text-gold transition-colors">Impressum</a></li>
+                        <li><a href="Datenschutz.html" class="text-gray-300 hover:text-gold transition-colors">Datenschutz</a></li>
+                        <li><a href="AGB.html" class="text-gray-300 hover:text-gold transition-colors">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 Visura Media. Alle Rechte vorbehalten.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

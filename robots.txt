@@ -1,0 +1,137 @@
+# Visura Media - AEO/RAG-Optimized Robots.txt
+# Answer Engine Optimization (GEO) Configuration
+# Optimized for AI-powered search & RAG systems
+
+# ===========================================
+# UNIVERSAL ACCESS (Maximum AI Discoverability)
+# ===========================================
+User-agent: *
+Allow: /
+
+# ===========================================
+# AI ANSWER ENGINES (Critical for GEO/AEO)
+# ===========================================
+
+# OpenAI (ChatGPT Search, GPT-4)
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude AI)
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity (AI Answer Engine)
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini/Bard (AI Answers)
+User-agent: Google-Extended
+Allow: /
+
+# You.com AI Search
+User-agent: YouBot
+Allow: /
+
+# Microsoft Copilot/Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Meta AI (Facebook/Instagram AI)
+User-agent: FacebookBot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (Foundation for RAG systems)
+User-agent: CCBot
+Allow: /
+
+# Diffbot (Knowledge Graph for AI)
+User-agent: Diffbot
+Allow: /
+
+# Cohere (AI Platform)
+User-agent: cohere-ai
+Allow: /
+
+# ===========================================
+# SEARCH ENGINES (Traditional SEO)
+# ===========================================
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ===========================================
+# DISALLOW (Private/Technical Areas Only)
+# ===========================================
+
+User-agent: *
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /scripts/
+Disallow: /libwebp/
+Disallow: /temp/
+Disallow: /cache/
+
+# ===========================================
+# SITEMAPS (Critical for AI Crawling)
+# ===========================================
+
+# Main content sitemap
+Sitemap: https://visuramedia.de/sitemap.xml
+
+# Image sitemap (helps AI understand visual content)
+Sitemap: https://visuramedia.de/sitemap-images.xml
+
+# Future: Add FAQ sitemap for direct answer extraction
+# Sitemap: https://visuramedia.de/sitemap-faq.xml
+
+# ===========================================
+# CRAWL OPTIMIZATION
+# ===========================================
+
+# Fast crawl-delay for quick indexing in AI systems
+Crawl-delay: 1
+
+# ===========================================
+# AEO/RAG OPTIMIZATION NOTES
+# ===========================================
+
+# For AI-powered answer engines:
+# 1. All FAQ pages are marked with FAQPage schema
+# 2. Service pages use structured data (Service schema)
+# 3. Contact info uses LocalBusiness schema
+# 4. All content follows semantic HTML5
+# 5. Clear headings hierarchy (H1 → H2 → H3)
+# 6. Answer-ready content format (questions + answers)
+
+# AI Citation Reference: /ai.txt
+# Detailed AI instructions: https://visuramedia.de/ai.txt
+
+# Host: https://visuramedia.de

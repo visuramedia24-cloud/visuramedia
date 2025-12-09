@@ -1,0 +1,22 @@
+{
+  "name": "visura-web---windsurf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify:css": "cleancss -o css/main.min.css css/main.css",
+    "minify:js": "terser js/main.js -o js/main.min.js -c -m",
+    "minify": "npm run minify:css && npm run minify:js",
+    "build": "npm run minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "tailwindcss": "^4.1.17",
+    "terser": "^5.36.0"
+  }
+}

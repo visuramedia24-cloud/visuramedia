@@ -1,0 +1,144 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://visuramedia.de/#organization",
+      "name": "Visura Media",
+      "url": "https://visuramedia.de",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://visuramedia.de/assets/images/logo.png",
+        "width": 250,
+        "height": 60
+      },
+      "description": "Digital Marketing Agentur in Leipzig spezialisiert auf schnelle Website-Entwicklung, Social Media Management und KI-Automatisierung",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leipzig",
+        "addressRegion": "Sachsen",
+        "addressCountry": "DE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["German", "English"],
+        "areaServed": "DE"
+      },
+      "sameAs": [
+        "https://www.facebook.com/visuramedia",
+        "https://www.instagram.com/visuramedia",
+        "https://www.linkedin.com/company/visuramedia"
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://visuramedia.de/#localbusiness",
+      "name": "Visura Media",
+      "image": "https://visuramedia.de/assets/images/hero-bg.jpg",
+      "priceRange": "€€-€€€",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Leipzig",
+        "addressRegion": "Sachsen",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.3397",
+        "longitude": "12.3731"
+      },
+      "url": "https://visuramedia.de",
+      "telephone": "+49-XXX-XXXXXXX",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://visuramedia.de/#service",
+      "name": "Visura Media Digital Marketing Services",
+      "provider": {
+        "@id": "https://visuramedia.de/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Germany"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Marketing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Entwicklung",
+              "description": "Professionelle WordPress Websites mit unter 1 Sekunde Ladezeit und SEO-Optimierung",
+              "provider": {
+                "@id": "https://visuramedia.de/#organization"
+              },
+              "areaServed": "DE",
+              "availableLanguage": ["German", "English"]
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Social Media Management",
+              "description": "Content Creation, Community Management und Social Media Strategie",
+              "provider": {
+                "@id": "https://visuramedia.de/#organization"
+              },
+              "areaServed": "DE"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "KI Automatisierung",
+              "description": "AI-gestützte Prozessautomatisierung für Unternehmen",
+              "provider": {
+                "@id": "https://visuramedia.de/#organization"
+              },
+              "areaServed": "DE"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Optimierung",
+              "description": "Suchmaschinenoptimierung für bessere Google Rankings",
+              "provider": {
+                "@id": "https://visuramedia.de/#organization"
+              },
+              "areaServed": "DE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://visuramedia.de/#website",
+      "url": "https://visuramedia.de",
+      "name": "Visura Media",
+      "description": "Digital Marketing Agentur Leipzig - Website Entwicklung, Social Media, KI Automatisierung",
+      "publisher": {
+        "@id": "https://visuramedia.de/#organization"
+      },
+      "inLanguage": "de-DE",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://visuramedia.de/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
